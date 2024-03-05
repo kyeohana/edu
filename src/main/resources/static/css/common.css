@@ -107,9 +107,8 @@ header {
     position: relative;    
 }
 
-.banner2 > li > ul {
-    position: absolute;
-    transform: translateY(10%);
+.banner2 > li > ul > li {
+   margin-top : 20px;
 }
 
 .banner3 {

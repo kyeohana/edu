@@ -14,6 +14,7 @@
 $("document").ready(function () {
     var header = $("header");
     var sections = $("section > ul > li");
+    var headerHovered = false;
 
     var originalHeight = header.height();
 
@@ -39,36 +40,30 @@ $("document").ready(function () {
         }
     });*/
 
+    $(".banner > .banner2 > li").mouseenter(function () {
+        header.stop().animate({ height: "220px" }, 500);
+    }).mouseleave(function () {
+        setTimeout(function () {
+            if (!headerHovered) {
+                header.stop().animate({ height: "66px" }, 500);
+                $(".banner > .banner2 > li > ul").hide();
+            }
+        }, 10);
+    });
 
-    var headerHovered = false;
-
-$(".banner > .banner2 > li").mouseenter(function () {
-    header.stop().animate({ height: "220px" }, 500);
-}).mouseleave(function () {
-    setTimeout(function () {
-        if (!headerHovered) {
-            header.stop().animate({ height: "66px" }, 500);
-            // 서브메뉴 숨기기
-            $(".banner > .banner2 > li > ul").hide();
-        }
-    }, 500);
-});
-
-header.mouseenter(function () {
-    headerHovered = true;
-    header.stop().animate({ height: "220px" }, 500);
-    // 서브메뉴 모두 표시
-    $(".banner > .banner2 > li > ul").show();
-}).mouseleave(function () {
-    headerHovered = false;
-    setTimeout(function () {
-        if (!headerHovered) {
-            header.stop().animate({ height: "66px" }, 500);
-            // 서브메뉴 숨기기
-            $(".banner > .banner2 > li > ul").hide();
-        }
-    }, 500);
-});
+    header.mouseenter(function () {
+        headerHovered = true;
+        header.stop().animate({ height: "220px" }, 500);
+        $(".banner > .banner2 > li > ul").show();
+    }).mouseleave(function () {
+        headerHovered = false;
+        setTimeout(function () {
+            if (!headerHovered) {
+                header.stop().animate({ height: "66px" }, 500);
+                $(".banner > .banner2 > li > ul").hide();
+            }
+        }, 10);
+    });
 
     function checkScroll() {
         var windowHeight = $(window).height();
@@ -99,22 +94,22 @@ header.mouseenter(function () {
             <ul class = "banner2">
                 <li><a href="">메인</a>
                     <ul class="submenu">
-                        <li><a href="">sub_menu</a></li>
-                        <li><a href="">sub_menu</a></li>
+                        <li><a href="">메인메뉴입니다</a></li>
+                        <li><a href="">공지사항</a></li>
                     </ul>
                 </li>
                 <li><a href="">강의</a>
                     <ul class="submenu">
                         <li><a href="">사이버강의</a></li>
                         <li><a href="">오프라인강의</a></li>
-                        <li><a href="">오프라인강의</a></li>
+                        <li><a href="">강의점수</a></li>
                     </ul>
                 </li>
                 <li><a href="">커뮤니티</a>
                     <ul class="submenu">
-                        <li><a href="">사이버강의</a></li>
-                        <li><a href="">오프라인강의</a></li>
-                        <li><a href="">오프라인강의</a></li>
+                        <li><a href="">질문게시판</a></li>
+                        <li><a href="">자유게시판</a></li>
+                        <li><a href="">Q&A</a></li>
                     </ul>
                 </li>
             </ul>
