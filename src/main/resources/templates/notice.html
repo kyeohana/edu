@@ -20,15 +20,11 @@
         <div class="header_container"></div>
     </header>
 
-    <div class="main-point">
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"> <img src="../img/1.jpg" alt="">
-                    <P class="first-line"> ㅡ </P>
-                    <P class="second-line">공지사항</P>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
+    <div class="swiper-slide">
+        <div class="main_img"> 
+            <img src="../img/1.jpg" alt="">
+            <P class="first-line"> ㅡ </P>
+            <P class="second-line">공지사항</P>
         </div>
     </div>
 
@@ -41,21 +37,71 @@
                     <a id="oneDepsTitle">메인</a>
                     <div class="location-drop-bx">
                         <ul class="location-2depth-list">
-                            <li onclick="menuService.oneDepsClick('메인')"><a>메인</a>
-                            </li>
-                            <li onclick="menuService.oneDepsClick('자료실 및 일정')"><a>자료실 및 일정</a>
-                            </li>
-                            <li onclick="menuService.oneDepsClick('커뮤니티')"><a>커뮤니티</a>
-                            </li>
+                            <li><a href="/" class="oneDepsTitle">메인</a></li>
+                            <li><a href="/" class="oneDepsTitle">메인</a></li>
+                            <li><a href="/" class="oneDepsTitle">메인</a></li>
                         </ul>
+                    <a href="/" class ="home_pic"></a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>        
+<section class="notice">
 
-    <section class="container"></section>
-    <section class="container"></section>
+      <div id="board-list">
+          <div class="container">
+              <table class="board-table">
+                  <thead>
+                  <tr>
+                      <th scope="col" class="th-num">번호</th>
+                      <th scope="col" class="th-title">제목</th>
+                      <th scope="col" class="th-date">등록일</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td>3</td>
+                      <th>
+                        <a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a>
+                        <p>테스트</p>
+                      </th>
+                      <td>2017.07.13</td>
+                  </tr>
+  
+                  <tr>
+                      <td>2</td>
+                      <th><a href="#!">공지사항 안내입니다. 이용해주셔서 감사합니다</a></th>
+                      <td>2017.06.15</td>
+                  </tr>
+  
+                  <tr>
+                      <td>1</td>
+                      <th><a href="#!">공지사항 안내입니다. 이용해주셔서 감사합니다</a></th>
+                      <td>2017.06.15</td>
+                  </tr>
+                  </tbody>
+              </table>
+          </div>
+        
+        <a href="#" data-text="글쓰기" class = "button_notice">글쓰기</a>
+      </div>
+      <div id="board-search">
+        <div class="container">
+            <div class="search-window">
+                <form action="">
+                    <div class="search-wrap">
+                        <label for="search" class="blind">공지사항 내용 검색</label>
+                        <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
+                        <button type="submit" class="btn btn-dark">검색</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  
+  </section>
+    </section>
     <section class="container"></section>
     <footer></footer>
 </body>
