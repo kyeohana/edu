@@ -1,0 +1,112 @@
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+}
+
+.swiper-slide img {
+    position: relative;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 150px;
+    margin: 0 auto;
+    filter: brightness(0.6);
+    z-index: 1;
+    padding-top: 68px;
+}
+
+.swiper-slide p.first-line {
+    position: absolute;
+    z-index: 2;
+    top: 116%;
+    left: 50%;
+    transform: translate(-50%, -150px);
+    color: white;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 700;
+}
+
+.swiper-slide p.second-line {
+    position: absolute;
+    z-index: 2;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -50px);
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 900;
+}
+
+.swiper .swiper-pagination-bullet {
+    background-color: #fff;
+    margin: 0 10px;
+}
+
+.location-wrap{
+    width: 100%;
+}
+
+.location-inner {
+    height: 40px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.location-drop-wrap{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+}
+
+.home_btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 56px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../img/home.png)no-repeat center;
+    background-size: 18px 20px;
+    border-left: 1px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
+}
+
+.location-drop-wrap-twin{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: 56px;
+}
+
+.location-drop{
+    height: 100%;
+    border-right: 1px solid #f0f0f0;
+    position: relative;
+}
+
+.location-drop > a{
+    height: 100%;
+    padding: 0 60px 0 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-weight: 500;
+    min-width: 200px;
+}
+
+.location-drop-bx{
+    display: none;
+    z-index: 99;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+}

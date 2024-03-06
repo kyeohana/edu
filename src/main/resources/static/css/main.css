@@ -1,0 +1,134 @@
+
+
+section>ul>li {
+    opacity: 0;
+    align-items: center;
+    transform: translateY(500px);
+    transition: opacity 1.0s ease, transform 1.0s ease;
+}
+
+section>ul>li.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+}
+
+.swiper-slide img {
+    position: relative;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 555px;
+    margin: 0 auto;
+    filter: brightness(0.6);
+    z-index: 1;
+    padding-top: 68px;
+}
+
+.swiper-slide p.first-line {
+    position: absolute;
+    z-index: 2;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -150px);
+    color: white;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.swiper-slide p.second-line {
+    position: absolute;
+    z-index: 2;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50px);
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 100;
+}
+
+.second_main {
+    text-align: center;
+}
+
+.second_main .main_first_context {
+    font-size: xx-large;
+    font-weight: 700;
+}
+
+.second_main .main_second_context {
+    font-size: larger;
+    font-weight: 400;
+    padding-top: 1%;
+}
+
+.swiper .swiper-pagination-bullet {
+    background-color: #fff;
+    margin: 0 10px;
+}
+
+.second-img {
+    display: flex;
+    padding: 50px;
+    gap: 2%;
+}
+
+.second-img img {
+    width: 400px;
+    height: 400px;
+    justify-content: center;
+}
+
+.sub_first {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    padding-right: 10%;
+    padding-bottom: 50px;
+}
+
+.first_context {
+    margin-top: 400px;
+    font-size: x-large;
+    font-style: oblique;
+}
+
+.first_line img {
+    height: 110px;
+    width: 100%;
+    opacity: 0.2;
+}
+
+.sub_second {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    padding-bottom: 50px;
+}
+
+.second_context {
+    margin-top: 465px;
+    font-size: x-large;
+    font-style: oblique;
+}
+
+.sub_three {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    padding-right: 10%;
+}
+
+.three_conext {
+    margin-top: 465px;
+    font-size: x-large;
+    font-style: oblique;
+}
