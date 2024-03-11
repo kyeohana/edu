@@ -1,16 +1,16 @@
-package education.kh.edu.dto;
+package education.kh.edu.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+import java.util.Date;
+
+@Data
 public class NoticeDto {
     private int num;
     private String user_id;
     private String title ;
     private String contextLL ;
-    private String cre_date ;
+    private Date cre_date ;
     private String view_cnt ;
     private String del_yn ;
     private String del_date ;

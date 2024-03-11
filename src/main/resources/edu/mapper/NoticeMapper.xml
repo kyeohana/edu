@@ -3,8 +3,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="education.kh.edu.mapper.NoticeMapper">
 
-    <select id="NoticeList" resultType="education.kh.edu.dto.NoticeDto">
-        SELECT * FROM edu_notice
+    <select id="NoticeList" resultType="education.kh.edu.domain.NoticeDto">
+        SELECT *
+          FROM edu.edu_notice
     </select>
 
 </mapper>
