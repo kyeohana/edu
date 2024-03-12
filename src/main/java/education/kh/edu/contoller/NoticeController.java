@@ -1,25 +1,31 @@
 package education.kh.edu.contoller;
 
-import java.util.List;
-
 import education.kh.edu.service.NoticeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import education.kh.edu.domain.NoticeDto;
-import lombok.RequiredArgsConstructor;
 
 @Controller
-@RequestMapping("/edu/board")
+@RequestMapping("/board")
 public class NoticeController {
+
+    private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
+
 
     @Autowired
     private NoticeService noticeService;
 
     @RequestMapping(value = "/notice", method = RequestMethod.GET)
-    public void NoticeList() throws Exception {
+    public String getNoticeList(Model model) throws Exception {
+
+        model.addAttribute("notices", noticeService.getNoticeList());
+
+        return "board/notice";
+
     }
     
 }

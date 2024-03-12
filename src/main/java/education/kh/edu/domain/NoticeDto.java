@@ -9,7 +9,7 @@ public class NoticeDto {
     private int num;
     private String user_id;
     private String title ;
-    private String contextLL ;
+    private String context ;
     private Date cre_date ;
     private String view_cnt ;
     private String del_yn ;

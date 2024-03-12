@@ -7,5 +7,5 @@ import education.kh.edu.domain.NoticeDto;
 @Mapper
 public interface NoticeMapper {
 
-    public List<NoticeDto> NoticeList() throws Exception;
+    public List<NoticeDto> getNoticeList() throws Exception;
 }

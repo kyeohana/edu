@@ -3,7 +3,6 @@ package education.kh.edu.service;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import education.kh.edu.domain.NoticeDto;
 import education.kh.edu.mapper.NoticeMapper;
@@ -17,8 +16,8 @@ public class NoticeServiceImpl implements NoticeService {
     private NoticeMapper noticeMapper;
 
     @Override
-    public List<NoticeDto> NoticeList() throws Exception {
-        return noticeMapper.NoticeList();
+    public List<NoticeDto> getNoticeList() throws Exception {
+        return noticeMapper.getNoticeList();
     }
     
 }

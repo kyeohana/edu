@@ -5,6 +5,6 @@ import education.kh.edu.domain.NoticeDto;
 
 public interface NoticeService {
 
-    public List<NoticeDto> NoticeList() throws Exception;
+    public List<NoticeDto> getNoticeList() throws Exception;
     
 }

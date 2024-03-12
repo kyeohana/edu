@@ -2,6 +2,7 @@ $("document").ready(function () {
     var header = $("header");
     var sections = $("section > ul > li");
     var headerHovered = false;
+    var tableBody = $('#body-list tbody')
 
     $(".header_container").load("/include/header.html");
 
@@ -46,5 +47,38 @@ $("document").ready(function () {
     $(window).scroll(function () {
         checkScroll();
     });
+
+    $.ajax({
+        url: '/board/notice',
+        type : 'GET',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+
+            var notices = data;
+
+            if (notices && notices.length > 0){
+                for (var i = 0; i < notices.length; i++)
+                    var notice = notices[i];
+                    var row = '<tr>' +
+                              '<td> + notice.num + </td>' +
+                              '<td><a href = "#"> + notice.title + </a></td>' +
+                              '<td> + notice.context + </td>'+
+                              '<td> + notice.viewCnt + </td>'+
+                           '</tr>';
+                    tableBody.append(row);
+            }
+            else
+                var noDataRow = '<tr>' +
+                    '<td colspan = "4"> + 조회된 데이터가 없습니다 + </td>' +
+                    '</tr>'
+            tableBody.append(noDataRow);
+            },
+        error: function(error){
+            console.error('error balsang :', error);
+            }
+        }
+
+    )
 
 });

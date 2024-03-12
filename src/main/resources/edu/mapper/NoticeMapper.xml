@@ -3,9 +3,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="education.kh.edu.mapper.NoticeMapper">
 
-    <select id="NoticeList" resultType="education.kh.edu.domain.NoticeDto">
-        SELECT *
+    <select id="getNoticeList" resultType="education.kh.edu.domain.NoticeDto">
+        SELECT num,user_id, title, context, cre_date, view_cnt, del_yn, del_date, upd_date, file, file_cra_date
           FROM edu.edu_notice
+         WHERE del_yn = 'N'
     </select>
 
 </mapper>

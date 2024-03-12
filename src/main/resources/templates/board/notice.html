@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,7 @@
     </header>
 
     <div class="swiper-slide">
-        <div class="main_img"> 
+        <div class="main_img">
             <img src="../img/1.jpg" alt="">
             <P class="first-line"> ㅡ </P>
             <P class="second-line">공지사항</P>
@@ -32,21 +32,21 @@
         <div class="location-inner">
             <div class="location-drop-wrap">
                 <div class = "location-drop-wrap-twin">
-                    <a href="/" class="home_btn"></a>
+                    <a href="/static" class="home_btn"></a>
                 <div class="location-drop">
                     <a id="oneDepsTitle">메인</a>
                     <div class="location-drop-bx">
                         <ul class="location-2depth-list">
-                            <li><a href="/" class="oneDepsTitle">메인</a></li>
-                            <li><a href="/" class="oneDepsTitle">메인</a></li>
-                            <li><a href="/" class="oneDepsTitle">메인</a></li>
+                            <li><a href="/static" class="oneDepsTitle">메인</a></li>
+                            <li><a href="/static" class="oneDepsTitle">메인</a></li>
+                            <li><a href="/static" class="oneDepsTitle">메인</a></li>
                         </ul>
-                    <a href="/" class ="home_pic"></a>
+                    <a href="/static" class ="home_pic"></a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>        
+    </div>
 <section class="notice">
 
       <div id="board-list">
@@ -61,26 +61,6 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                      <td>3</td>
-                      <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                      <td>2017.07.13</td>
-                      <td>3</td>
-                  </tr>
-  
-                  <tr>
-                      <td>2</td>
-                      <th><a href="#!">공지사항 안내입니다. 이용해주셔서 감사합니다</a></th>
-                      <td>2017.06.15</td>
-                      <td>3</td>
-                  </tr>
-  
-                  <tr>
-                      <td>1</td>
-                      <th><a href="#!">공지사항 안내입니다. 이용해주셔서 감사합니다</a></th>
-                      <td>2017.06.15</td>
-                      <td>3</td>
-                  </tr>
                   </tbody>
               </table>
         <a href="#" data-text="글쓰기" class = "btn btn-dark btn-margin">글쓰기</a>
@@ -99,11 +79,10 @@
             </div>
         </div>
     </div>
-  
+
   </section>
-    </section>
+    </div>
     <section class="container"></section>
     <footer></footer>
 </body>
-
 </html>
