@@ -4,9 +4,21 @@
 <mapper namespace="education.kh.edu.mapper.NoticeMapper">
 
     <select id="getNoticeList" resultType="education.kh.edu.domain.NoticeDto">
-        SELECT num,user_id, title, context, cre_date, view_cnt, del_yn, del_date, upd_date, file, file_cra_date
-          FROM edu.edu_notice
-         WHERE del_yn = 'N'
+       SELECT num,user_id, title, context, cre_date, view_cnt, del_yn, del_date, upd_date, file, file_cra_date
+         FROM edu.edu_notice
+        WHERE del_yn = 'N'
+        ORDER BY cre_date DESC, NUM DESC
     </select>
+
+    <insert id ="boardWrite" parameterType="education.kh.edu.domain.NoticeDto">
+        INSERT INTO edu.edu_notice(title, context, del_yn, view_cnt, cre_date)
+        VALUES (#{title}, #{context} ,'N', '0', Now())
+    </insert>
+
+    <update id = 'boardViewCnt' parameterType="education.kh.edu.domain.NoticeDto">
+        UPDATE edu.edu_notice
+           SET view_cnt = view_cnt + 1
+         WHERE num = ${num}
+    </update>
 
 </mapper>

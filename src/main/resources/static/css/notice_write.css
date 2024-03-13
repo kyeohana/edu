@@ -1,0 +1,67 @@
+.write-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 140px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.char-count {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.buttons {
+    text-align: right;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-dark {
+    background-color: #555;
+    color: #fff;
+}
+
+.btn-light {
+    background-color: #eee;
+    color: #333;
+}
+
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-light:hover,
+.btn-light:focus {
+    opacity: 0.8;
+}

@@ -1,5 +1,6 @@
 package education.kh.edu.contoller;
 
+import education.kh.edu.domain.NoticeDto;
 import education.kh.edu.service.NoticeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,10 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/board")
@@ -32,4 +31,16 @@ public class NoticeController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to retrieve notice list");
         }
     }
+
+    @GetMapping("/notice/write")
+    public String boardWrite(NoticeDto vo, RedirectAttributes rttr) throws Exception {
+        logger.info("입력데이터 :" + vo);
+
+        noticeService.boardWrite(vo);
+
+        rttr.addFlashAttribute("msg","write" );
+
+        return "redirect:/board/notice.html";
+    }
+
 }

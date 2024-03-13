@@ -19,5 +19,11 @@ public class NoticeServiceImpl implements NoticeService {
     public List<NoticeDto> getNoticeList() throws Exception {
         return noticeMapper.getNoticeList();
     }
+
+    @Override
+    public void boardWrite(NoticeDto vo) throws Exception{
+        noticeMapper.boardWrite(vo);
+
+    }
     
 }

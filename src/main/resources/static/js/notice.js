@@ -67,7 +67,7 @@ $("document").ready(function () {
                     var formattedDate = new Date(notice.cre_date).toISOString().split('T')[0];
                     var row = '<tr>' +
                         '<td>' + notice.num + '</td>' +
-                        '<td><a href="#">' + notice.title + '</a></td>' +
+                        '<td><a href="/board/notice_detail.html">' + notice.title + '</a></td>' +
                         '<td>' + formattedDate + '</td>' +
                         '<td>' + notice.view_cnt + '</td>' +
                         '</tr>';
