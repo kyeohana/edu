@@ -5,6 +5,7 @@ $("document").ready(function () {
     var tableBody = $('#body-list tbody')
 
     $(".header_container").load("/include/header.html");
+    $(".footer-container").load("/include/footer.html");
 
     $(".banner > .banner2 > li").mouseenter(function () {
         header.stop().animate({ height: "220px" }, 500);
@@ -49,31 +50,36 @@ $("document").ready(function () {
     });
 
     $.ajax({
-        url: '/board/notice',
+        url: '/board/notice/list',
         type : 'GET',
         dataType: 'json',
         success: function (data) {
             console.log(data);
 
             var notices = data;
+            var tableBody = $('.board-table tbody');
 
-            if (notices && notices.length > 0){
-                for (var i = 0; i < notices.length; i++)
+            tableBody.empty();
+
+            if (notices && notices.length > 0) {
+                for (var i = 0; i < notices.length; i++) {
                     var notice = notices[i];
+                    var formattedDate = new Date(notice.cre_date).toISOString().split('T')[0];
                     var row = '<tr>' +
-                              '<td> + notice.num + </td>' +
-                              '<td><a href = "#"> + notice.title + </a></td>' +
-                              '<td> + notice.context + </td>'+
-                              '<td> + notice.viewCnt + </td>'+
-                           '</tr>';
+                        '<td>' + notice.num + '</td>' +
+                        '<td><a href="#">' + notice.title + '</a></td>' +
+                        '<td>' + formattedDate + '</td>' +
+                        '<td>' + notice.view_cnt + '</td>' +
+                        '</tr>';
                     tableBody.append(row);
-            }
-            else
+                }
+            } else {
                 var noDataRow = '<tr>' +
-                    '<td colspan = "4"> + 조회된 데이터가 없습니다 + </td>' +
-                    '</tr>'
-            tableBody.append(noDataRow);
-            },
+                    '<td colspan="4">조회된 데이터가 없습니다</td>' +
+                    '</tr>';
+                tableBody.append(noDataRow);
+            }
+        },
         error: function(error){
             console.error('error balsang :', error);
             }

@@ -4,6 +4,7 @@ $("document").ready(function () {
     var headerHovered = false;
 
     $(".header_container").load("/include/header.html");
+    $(".footer-container").load("/include/footer.html");
 
     var swiper = new Swiper(".mySwiper", {
         pagination: {
