@@ -49,8 +49,9 @@ $("document").ready(function () {
                     var notice = notices[i];
                     var formattedDate = new Date(notice.cre_date).toISOString().split('T')[0];
                     var row = '<tr>' +
-                        '<td>' + notice.num + '</td>' +
-                        '<td><a href="/board/notice_detail.html">' + notice.title + '</a></td>' +
+                        '<td>' +
+                        '<input type="hidden" name="notice_num" value="' + notice.num + '">' + (notices.length - i) + '</td>' +
+                        '<td><a href="/board/notice_detail.html?noticeId=' + notice.num + '">' + notice.title + '</a></td>' +
                         '<td>' + formattedDate + '</td>' +
                         '<td>' + notice.view_cnt + '</td>' +
                         '</tr>';
@@ -72,7 +73,7 @@ $("document").ready(function () {
 
     $('.board-table').on('click', 'a', function(event) {
 
-        var noticeId = $(this).closest('tr').find('td:first-child').text().trim();
+        var noticeId = $(this).closest('tr').find('input[name="notice_num"]').val();
 
         $.ajax({
             url: '/board/notice/view_count',

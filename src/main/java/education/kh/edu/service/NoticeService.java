@@ -2,7 +2,6 @@ package education.kh.edu.service;
 
 import java.util.*;
 import education.kh.edu.domain.NoticeDto;
-import org.apache.ibatis.annotations.Param;
 
 public interface NoticeService {
 
@@ -11,5 +10,7 @@ public interface NoticeService {
     public void boardWrite(NoticeDto vo) throws  Exception;
 
     public void boardViewCnt(int id) throws  Exception;
+
+    public List<NoticeDto> boardWriteDetail(int id) throws Exception;
     
 }

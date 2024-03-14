@@ -21,4 +21,11 @@
          WHERE num = ${num}
     </update>
 
+    <select id="boardWriteDetail" resultType="education.kh.edu.domain.NoticeDto">
+        SELECT num,user_id, title, context, cre_date, view_cnt, del_yn, del_date, upd_date, file, file_cra_date
+        FROM edu.edu_notice
+        WHERE del_yn = 'N'
+          AND num = ${num}
+    </select>
+
 </mapper>
