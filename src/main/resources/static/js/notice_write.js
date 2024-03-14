@@ -30,5 +30,16 @@ $("document").ready(function () {
         }, 10);
     });
 
+    $("#write-form").submit(function(event) {
+        event.preventDefault()
+
+        var con = confirm("등록하시겠습니까?")
+
+        if(con){
+            this.submit();
+        }
+
+    })
+
 
 });

@@ -32,23 +32,6 @@ $("document").ready(function () {
         }, 10);
     });
 
-    function checkScroll() {
-        var windowHeight = $(window).height();
-        var scrollPostion = $(window).scrollTop();
-
-        sections.each(function() {
-            var offset = $(this).offset().top;
-            
-            if (scrollPostion + windowHeight >= offset) {
-                $(this).addClass("active");
-            }
-        });
-    };
-
-    $(window).scroll(function () {
-        checkScroll();
-    });
-
     $.ajax({
         url: '/board/notice/list',
         type : 'GET',
@@ -86,5 +69,22 @@ $("document").ready(function () {
         }
 
     )
+
+    $('.board-table').on('click', 'a', function(event) {
+
+        var noticeId = $(this).closest('tr').find('td:first-child').text().trim();
+
+        $.ajax({
+            url: '/board/notice/view_count',
+            type: 'GET',
+            data: { id: noticeId },
+            success: function(response) {
+                console.log('조회수가 성공적으로 증가했습니다.');
+            },
+            error: function(error) {
+                console.error('조회수 증가에 실패했습니다:', error);
+            }
+        });
+    });
 
 });

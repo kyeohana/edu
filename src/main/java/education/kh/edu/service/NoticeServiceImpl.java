@@ -2,6 +2,7 @@ package education.kh.edu.service;
 
 import java.util.*;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import education.kh.edu.domain.NoticeDto;
@@ -24,6 +25,10 @@ public class NoticeServiceImpl implements NoticeService {
     public void boardWrite(NoticeDto vo) throws Exception{
         noticeMapper.boardWrite(vo);
 
+    }
+
+    public void boardViewCnt(int id) throws Exception{
+        noticeMapper.boardViewCnt(id);
     }
     
 }
