@@ -3,8 +3,6 @@ $("document").ready(function () {
     var noticeId = new URLSearchParams(window.location.search).get('noticeId');
     console.log(noticeId);
 
-    $('input[name="num"]').val(noticeId);
-
     $.ajax({
             url: '/board/notice/writedetail',
             type: 'GET',
@@ -25,6 +23,9 @@ $("document").ready(function () {
 
                     titledata.append(title_context)
                     contextdata.append(content_context)
+
+                    $('input[name="num"]').val(noticeId);
+
                 } else {
                     var title_context =
                         '<p>조회 된 데이터가 없습니다</p>';
