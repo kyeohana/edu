@@ -17,4 +17,6 @@ public interface NoticeMapper {
 
     public List<NoticeDto> answerDetail(int id) throws Exception;
 
+    public void answerWrite(NoticeDto nd) throws Exception;
+
 }

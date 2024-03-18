@@ -3,6 +3,8 @@ $("document").ready(function () {
     var noticeId = new URLSearchParams(window.location.search).get('noticeId');
     console.log(noticeId);
 
+    $('input[name="num"]').val(noticeId);
+
     $.ajax({
             url: '/board/notice/writedetail',
             type: 'GET',
@@ -81,6 +83,33 @@ $("document").ready(function () {
         event.preventDefault()
 
         var con = confirm("등록하시겠습니까?")
+        var userId = $("#user_id").val();
+        var context = $("#context").val();
+
+
+        if (!userId) {
+            alert("작성자를 입력해주세요")
+            $("#user_id").addClass("error")
+            return;
+        } else if (userId.length > 5) {
+            alert("작성자를 5글자 이내로 입력해주세요")
+            $("#user_id").addClass("error")
+            return;
+        } else {
+            $("#user_id").removeClass("error")
+        }
+
+        if (!context) {
+            alert("내용을 입력해주세요")
+            $("#context").addClass("error")
+            return;
+        } else if (context.length > 30) {
+            alert("내용을 30글자 이내로 입력해주세요")
+            $("#context").addClass("error")
+            return;
+        } else {
+            $("#context").removeClass("error")
+        }
 
         if (con) {
             alert("등록이 완료 되었습니다.");

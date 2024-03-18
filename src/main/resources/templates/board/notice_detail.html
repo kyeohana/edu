@@ -54,20 +54,19 @@
             </li>
         </ul>
         <form class="comment-form" action="/board/notice/listAnswerWrite" method="GET" enctype="multipart/form-data">
+            <input type="hidden" name="num" value="">
             <div class="form-group">
-                <label for="comment-author">작성자</label>
-                <input type="text" id="comment-author" name="author" required>
+                <label for="user_id">작성자</label>
+                <input type="text" id="user_id" name="user_id">
+                <p style="font-size: small; color: #999;">* 작성자는 5글자 이내로 입력이 가능합니다.</p>
             </div>
             <div class="form-group">
-                <label for="comment-content">내용</label>
-                <textarea id="comment-content" name="content" rows="3" required></textarea>
+                <label for="context">내용</label>
+                <textarea id="context" name="context" rows="3"></textarea>
+                <p style="font-size: small; color: #999;">* 내용은 30글자 이내로 입력이 가능합니다.</p>
             </div>
             <button type="submit" class="btn btn-dark">등록</button>
-            <button type="list-back" class="btn btn-dark">
-                <a href="notice.html">
-                    목록
-                </a>
-            </button>
+            <a href="notice.html">목록</a>
         </form>
     </div>
 </div>

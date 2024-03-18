@@ -14,5 +14,6 @@ public interface NoticeService {
     public List<NoticeDto> boardWriteDetail(int id) throws Exception;
 
     public List<NoticeDto> answerDetail(int id) throws Exception;
-    
+
+    public void answerWrite(NoticeDto nd) throws Exception;
 }

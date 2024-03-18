@@ -70,5 +70,17 @@ public class NoticeController {
         }
     }
 
+    @GetMapping("/listAnswerWrite")
+    public String answerWrite (NoticeDto nd, RedirectAttributes redirectAttributes) throws Exception {
+
+        noticeService.answerWrite(nd);
+
+        redirectAttributes.addAttribute("noticeId", nd.getNum());
+
+        return "redirect:/board/notice_detail.html";
+
+
+    }
+
 
 }

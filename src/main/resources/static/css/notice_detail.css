@@ -168,5 +168,9 @@
 }
 
 .list-back {
-    padding-left : 10px;
+    padding-left : 30px;
+}
+
+.error {
+    border: 1px solid red !important;
 }
