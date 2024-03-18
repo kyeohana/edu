@@ -4,10 +4,14 @@
 <mapper namespace="education.kh.edu.mapper.NoticeMapper">
 
     <select id="getNoticeList" resultType="education.kh.edu.domain.NoticeDto">
-       SELECT num,user_id, title, context, cre_date, view_cnt, del_yn, del_date, upd_date, file, file_cra_date
-         FROM edu.edu_notice
-        WHERE del_yn = 'N'
-        ORDER BY cre_date DESC, num DESC
+       SELECT a.*, COALESCE(c.answer_Cnt,0) answer_Cnt
+         FROM edu.edu_notice a
+         LEFT JOIN (SELECT b.num_notice, count(*) answer_Cnt
+                      FROM edu.edu_answer b
+                     GROUP BY b.num_notice) c
+                ON a.num = c.num_notice
+        WHERE a.del_yn = 'N'
+        ORDER BY a.cre_date DESC, a.num DESC
     </select>
 
     <insert id ="boardWrite" parameterType="education.kh.edu.domain.NoticeDto">

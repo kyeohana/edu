@@ -17,6 +17,7 @@ CREATE TABLE `edu_notice` (
   PRIMARY KEY (`num`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- edu.edu_answer definition
 
 GRANT SELECT ON edu.edu_answer TO 'root'@'localhost';
 

@@ -19,4 +19,5 @@ public class NoticeDto {
     private String file_cra_date ;
 
     private int num_notice;
+    private int answer_Cnt;
 }

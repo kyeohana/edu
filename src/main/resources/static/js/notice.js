@@ -22,6 +22,7 @@ $("document").ready(function () {
                         '<td><a href="/board/notice_detail.html?noticeId=' + notice.num + '">' + notice.title + '</a></td>' +
                         '<td>' + formattedDate + '</td>' +
                         '<td>' + notice.view_cnt + '</td>' +
+                        '<td>' + notice.answer_Cnt + '</td>' +
                         '</tr>';
                     tableBody.append(row);
                 }
