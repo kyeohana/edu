@@ -41,13 +41,19 @@
                     <p class="comment-text"></p>
                 </div>
                 <div class="comment-meta">
-                    <span class="comment-author">댓글 작성자</span>
-                    <span class="comment-date">댓글 작성일</span>
-                    <span class="comment-con">댓글 내용</span>
+                    <div class="comment-author">댓글 작성자</div>
+                    <div class="comment-date">댓글 작성일</div>
+                    <div class="comment-con">댓글 내용</div>
+                </div>
+                <div class="comment-meta-List">
+                    <div class ="commont-author-list"></div>
+                    <div class ="comment-date-list"></div>
+                    <div class ="comment-con-list"></div>
+
                 </div>
             </li>
         </ul>
-        <form class="comment-form">
+        <form class="comment-form" action="/board/notice/listAnswerWrite" method="GET" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="comment-author">작성자</label>
                 <input type="text" id="comment-author" name="author" required>

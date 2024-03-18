@@ -1,5 +1,7 @@
 -- edu.edu_notice definition
 
+GRANT SELECT ON edu.edu_notice TO 'root'@'localhost';
+
 CREATE TABLE `edu_notice` (
   `num` int NOT NULL AUTO_INCREMENT,
   `user_id` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
@@ -14,3 +16,21 @@ CREATE TABLE `edu_notice` (
   `file_cra_date` date DEFAULT NULL,
   PRIMARY KEY (`num`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+GRANT SELECT ON edu.edu_answer TO 'root'@'localhost';
+
+CREATE TABLE `edu_notice` (
+  `num` int NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `title` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `context` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `cre_date` date NOT NULL,
+  `view_cnt` varchar(30) NOT NULL,
+  `del_yn` varchar(1) NOT NULL,
+  `del_date` date DEFAULT NULL,
+  `upd_date` date DEFAULT NULL,
+  `file` varchar(30) DEFAULT NULL,
+  `file_cra_date` date DEFAULT NULL,
+  PRIMARY KEY (`num`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

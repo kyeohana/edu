@@ -33,10 +33,60 @@ $("document").ready(function () {
                     titledata.append(title_context)
                     contextdata.append(content_context)
                 }
+            },
+            error: function(error){
+                console.error('error balsang :', error);
             }
         }
     )
 
+    $.ajax({
+        url : '/board/notice/listAnswer',
+        type : 'GET',
+        dataType: 'json',
+        data : { id : noticeId },
+        success: function (data) {
 
+            var dataListAnswer = data;
+            var commontAuthorList = $(".commont-author-list");
+            var commentDateList = $(".comment-date-list");
+            var commentConList = $(".comment-con-list");
 
+            if(dataListAnswer && dataListAnswer.length > 0){
+                for (i =0; i < dataListAnswer.length; i++) {
+                    var formattedDate = new Date(dataListAnswer[i].cre_date).toISOString().split('T')[0];
+                    var rowAuthorUserId =
+                        '<div>' + dataListAnswer[i].user_id + '</div>';
+                    var rowAuthorCreDate =
+                        '<div>' + formattedDate + '</div>';
+                    var rowAuthorConText =
+                        '<div>' + dataListAnswer[i].context + '</div>';
+
+                    commontAuthorList.append(rowAuthorUserId);
+                    commentDateList.append(rowAuthorCreDate);
+                    commentConList.append(rowAuthorConText);
+                }
+            } else {
+                var rowAuthorList =
+                    '<span>' + 댓글이없습니다 + '</span>'
+                commentConList.append(rowAuthorList)
+            }
+        },
+        error: function(error){
+            console.error('error balsang :', error);
+        }
+    })
+
+    $(".comment-form").submit(function (event) {
+        event.preventDefault()
+
+        var con = confirm("등록하시겠습니까?")
+
+        if (con) {
+            alert("등록이 완료 되었습니다.");
+            this.submit();
+        } else {
+            alert("취소되었습니다.");
+        }
+    })
 });

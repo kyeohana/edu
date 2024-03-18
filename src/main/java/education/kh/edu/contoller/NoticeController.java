@@ -61,5 +61,14 @@ public class NoticeController {
         }
     }
 
+    @GetMapping("/listAnswer")
+    public ResponseEntity<?> answerDetail (@RequestParam int id ){
+        try{
+            return ResponseEntity.ok().body(noticeService.answerDetail(id));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("failed");
+        }
+    }
+
 
 }

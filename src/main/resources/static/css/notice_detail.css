@@ -85,6 +85,18 @@
     padding-left: 30%;
 }
 
+.commont-author-list{
+    margin-right: 10px;
+}
+
+.comment-date-list{
+    color: #999;
+}
+
+.comment-con-list{
+    padding-left: 30%;
+}
+
 .post-container {
     max-width: 800px;
     margin: 140px auto;
@@ -127,9 +139,15 @@
 
 .comment-meta {
     font-size: 12px;
+    display: flex;
 }
 
-.comment-meta span {
+.comment-meta-List {
+    font-size: 12px;
+    display: flex;
+}
+
+.comment-meta div {
     margin-right: 10px;
 }
 

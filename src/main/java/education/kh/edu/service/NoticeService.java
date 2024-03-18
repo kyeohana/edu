@@ -12,5 +12,7 @@ public interface NoticeService {
     public void boardViewCnt(int id) throws  Exception;
 
     public List<NoticeDto> boardWriteDetail(int id) throws Exception;
+
+    public List<NoticeDto> answerDetail(int id) throws Exception;
     
 }

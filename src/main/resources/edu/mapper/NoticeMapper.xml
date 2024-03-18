@@ -4,28 +4,35 @@
 <mapper namespace="education.kh.edu.mapper.NoticeMapper">
 
     <select id="getNoticeList" resultType="education.kh.edu.domain.NoticeDto">
-       SELECT num,user_id, title, context, cre_date, view_cnt, del_yn, del_date, upd_date, file, file_cra_date
-         FROM edu.edu_notice
-        WHERE del_yn = 'N'
-        ORDER BY cre_date DESC, NUM DESC
+       SELECT NUM,USER_ID, TITLE, CONTEXT, CRE_DATE, VIEW_CNT, DEL_YN, DEL_DATE, UPD_DATE, FILE, FILE_CRA_DATE
+         FROM EDU.EDU_NOTICE
+        WHERE DEL_YN = 'N'
+        ORDER BY CRE_DATE DESC, NUM DESC
     </select>
 
     <insert id ="boardWrite" parameterType="education.kh.edu.domain.NoticeDto">
-        INSERT INTO edu.edu_notice(title, context, del_yn, view_cnt, cre_date)
-        VALUES (#{title}, #{context} ,'N', '0', Now())
+        INSERT INTO EDU.EDU_NOTICE(TITLE, CONTEXT, DEL_YN, VIEW_CNT, CRE_DATE)
+        VALUES (#{TITLE}, #{CONTEXT} ,'N', '0', NOW())
     </insert>
 
     <update id = 'boardViewCnt' parameterType="education.kh.edu.domain.NoticeDto">
-        UPDATE edu.edu_notice
-           SET view_cnt = view_cnt + 1
-         WHERE num = ${num}
+        UPDATE EDU.EDU_NOTICE
+           SET VIEW_CNT = VIEW_CNT + 1
+         WHERE NUM = ${NUM}
     </update>
 
     <select id="boardWriteDetail" resultType="education.kh.edu.domain.NoticeDto">
-        SELECT num,user_id, title, context, cre_date, view_cnt, del_yn, del_date, upd_date, file, file_cra_date
-        FROM edu.edu_notice
-        WHERE del_yn = 'N'
-          AND num = ${num}
+        SELECT NUM,USER_ID, TITLE, CONTEXT, CRE_DATE, VIEW_CNT, DEL_YN, DEL_DATE, UPD_DATE, FILE, FILE_CRA_DATE
+        FROM EDU.EDU_NOTICE
+        WHERE DEL_YN = 'N'
+          AND NUM = ${NUM}
+    </select>
+
+    <select id="answerDetail" resultType="education.kh.edu.domain.NoticeDto">
+        SELECT *
+          FROM EDU.EDU_ANSWER
+         WHERE DEL_YN = 'N'
+           AND NUM_NOTICE = ${NUM}
     </select>
 
 </mapper>

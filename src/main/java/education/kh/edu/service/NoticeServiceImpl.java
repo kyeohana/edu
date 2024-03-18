@@ -33,5 +33,8 @@ public class NoticeServiceImpl implements NoticeService {
     public List<NoticeDto> boardWriteDetail(int id) throws Exception{
         return noticeMapper.boardWriteDetail(id);
     }
-    
+
+    public List<NoticeDto> answerDetail(int id) throws Exception{
+        return noticeMapper.answerDetail(id);
+    }
 }
