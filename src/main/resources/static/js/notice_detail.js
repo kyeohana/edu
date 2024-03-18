@@ -71,7 +71,7 @@ $("document").ready(function () {
                 }
             } else {
                 var rowAuthorList =
-                    '<span>' + 댓글이없습니다 + '</span>'
+                    '<div> 댓글이 없습니다. </div>'
                 commentConList.append(rowAuthorList)
             }
         },
