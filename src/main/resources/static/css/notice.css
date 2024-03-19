@@ -309,3 +309,11 @@ table {
 .btn-margin{
   margin: 1% 90%;
 }
+
+.pagination{
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+    align-items: center;
+    padding-left: 8%;
+}

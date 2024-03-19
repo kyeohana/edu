@@ -20,4 +20,5 @@ public class NoticeDto {
 
     private int num_notice;
     private int answer_Cnt;
+    private int totalPages;
 }
