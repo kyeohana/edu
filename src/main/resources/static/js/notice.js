@@ -1,10 +1,8 @@
-
-
 $("document").ready(function () {
 
     var currentPage = 1;
     function getPage(pageNumber) {
-        currentPage = pageNumber; // 페이지 번호 업데이트
+        currentPage = pageNumber;
         var itemsPerPage = 10;
 
     $.ajax({
@@ -75,14 +73,17 @@ $("document").ready(function () {
     });
 
     function updatePagination(notice) {
-        totalPages = notice.totalPages; // 전체 페이지 수 업데이트
+        totalPages = notice.totalPages;
         var paginationContainer = $('.pagination');
-        paginationContainer.empty(); // 페이징을 초기화
+        var maxVisiblePages = 10;
+        var totalPages = Math.ceil(totalPages / maxVisiblePages);
+        var currentPage = 1;
 
-        // '이전' 버튼 추가
+        paginationContainer.empty();
+
         var prevButton = $('<li class="page-item"><a class="page-link" href="#">이전</a></li>');
         if (currentPage === 1) {
-            prevButton.addClass('disabled'); // 현재 페이지가 첫 페이지인 경우 '이전' 버튼 비활성화
+            prevButton.addClass('disabled');
         } else {
             prevButton.click(function () {
                 getPage(currentPage - 1);
@@ -90,23 +91,24 @@ $("document").ready(function () {
         }
         paginationContainer.append(prevButton);
 
-        // 페이지 번호 버튼 추가
-        for (var i = 1; i <= totalPages; i++) {
+        var startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+        var endPage = Math.min(startPage + maxVisiblePages - 1, totalPages);
+
+        if (endPage - startPage + 1 < maxVisiblePages) {
+            startPage = Math.max(1, totalPages - maxVisiblePages + 1);
+        }
+
+        for (var i = startPage; i <= endPage; i++) {
             var pageButton = $('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
-            if (i === currentPage) {
-                pageButton.addClass('active'); // 현재 페이지를 나타내는 버튼은 활성화된 상태로 표시
-            } else {
-                pageButton.click(function () {
-                    getPage($(this).text());
-                });
-            }
+            pageButton.find('a').click(function () {
+                getPage($(this).text());
+            });
             paginationContainer.append(pageButton);
         }
 
-        // '다음' 버튼 추가
         var nextButton = $('<li class="page-item"><a class="page-link" href="#">다음</a></li>');
         if (currentPage === totalPages) {
-            nextButton.addClass('disabled'); // 현재 페이지가 마지막 페이지인 경우 '다음' 버튼 비활성화
+            nextButton.addClass('disabled');
         } else {
             nextButton.click(function () {
                 getPage(currentPage + 1);
@@ -115,6 +117,5 @@ $("document").ready(function () {
         paginationContainer.append(nextButton);
     }
 
-    // 페이지 초기화면 로드 시 첫 번째 페이지 데이터 요청
     getPage(currentPage);
 });
