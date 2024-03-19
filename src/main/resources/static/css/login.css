@@ -1,0 +1,19 @@
+.login_container {
+    display: flex;
+    justify-content: center;
+    padding: 10%;
+}
+
+.password {
+    padding-top: 20px;
+    text-align: right;
+}
+
+.username {
+    padding-top: 20px;
+}
+
+.login_btn{
+    margin-top: 20px;
+}
+

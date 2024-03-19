@@ -1,8 +1,7 @@
 .write-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
-    padding-top: 140px;
+    padding: 10%;
 }
 
 .form-group {
