@@ -83,17 +83,16 @@ $("document").ready(function () {
     $(".comment-form").submit(function (event) {
         event.preventDefault()
 
-        var con = confirm("등록하시겠습니까?")
         var userId = $("#user_id").val();
         var context = $("#context").val();
 
 
         if (!userId) {
-            alert("작성자를 입력해주세요")
+            swal("Error","작성자를 입력해주세요","warning");
             $("#user_id").addClass("error")
             return;
         } else if (userId.length > 5) {
-            alert("작성자를 5글자 이내로 입력해주세요")
+            swal("Error","작성자를 5글자 이내로 입력해주세요","warning");
             $("#user_id").addClass("error")
             return;
         } else {
@@ -101,22 +100,37 @@ $("document").ready(function () {
         }
 
         if (!context) {
-            alert("내용을 입력해주세요")
+            swal("Error","내용을 입력해주세요","warning");
             $("#context").addClass("error")
             return;
         } else if (context.length > 30) {
-            alert("내용을 30글자 이내로 입력해주세요")
+            swal("Error","내용을 30글자 이내로 입력해주세요","warning");
             $("#context").addClass("error")
             return;
         } else {
             $("#context").removeClass("error")
         }
 
-        if (con) {
-            alert("등록이 완료 되었습니다.");
-            this.submit();
-        } else {
-            alert("취소되었습니다.");
-        }
-    })
+        swal({
+            title: "등록하시겠습니까?",
+            icon: "info",
+            buttons: {
+                cancel: "취소",
+                confirm: "확인"
+            },
+        }).then((value) => {
+            if (value) {
+                swal("good job!", "등록이 완료 되었습니다.", "success")
+                    .then(() => {
+                        event.currentTarget.submit();
+                    });
+            } else {
+                swal("취소되었습니다.")
+                    .then(() => {
+                        $("#user_id").val("");
+                        $("#context").val("");
+                });
+            }
+        });
+    });
 });

@@ -2,57 +2,65 @@ $("document").ready(function () {
 
     var currentPage = 1;
     function getPage(pageNumber) {
-        currentPage = pageNumber;
+
         var itemsPerPage = 10;
 
-    $.ajax({
-        url: '/board/notice/list',
-        type : 'GET',
-        dataType: 'json',
-        data: {
-            page: pageNumber,
-            itemsPerPage: itemsPerPage
-        },
-        success: function (data) {
-            console.log(data);
+        $.ajax({
+            url: '/board/notice/list',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                page: pageNumber,
+                itemsPerPage: itemsPerPage
+            },
+            success: function(data) {
+                console.log(data);
 
-            var notices = data;
-            var tableBody = $('.board-table tbody');
+                var notices = data;
+                var tableBody = $('.board-table tbody');
 
-            tableBody.empty();
+                tableBody.empty();
 
-            if (notices && notices.length > 0) {
-                for (var i = 0; i < notices.length; i++) {
-                    var notice = notices[i];
-                    var formattedDate = new Date(notice.cre_date).toISOString().split('T')[0];
-                    var totalPages = $('.totalPages');
-                    var total = '<div>총 ' + notice.totalPages + '건</div>'
+                if (notices && notices.length > 0) {
+                    for (var i = 0; i < notices.length; i++) {
+                        var notice = notices[i];
+                        var formattedDate = new Date(notice.cre_date).toISOString().split('T')[0];
+                        var totalPages = $('.totalPages');
+                        var total = '<div>총 ' + notice.totalPages + '건</div>';
                         totalPages.html(total);
-                    var row =
-                        '<tr>' +
-                        '<td>' +
-                        '<input type="hidden" name="notice_num" value="' + notice.num + '">' + (notices.length - i) + '</td>' +
-                        '<td><a href="/board/notice_detail.html?noticeId=' + notice.num + '">' + notice.title + '</a></td>' +
-                        '<td>' + formattedDate + '</td>' +
-                        '<td>' + notice.view_cnt + '</td>' +
-                        '<td>' + notice.answer_Cnt + '</td>' +
-                        '</tr>';
-                    tableBody.append(row);
-                }
-            } else {
-                var noDataRow = '<tr>' +
-                    '<td colspan="4">조회된 데이터가 없습니다</td>' +
-                    '</tr>';
-                tableBody.append(noDataRow);
-            }
-            updatePagination(notice);
-        },
-        error: function(error){
-            console.error('error balsang :', error);
-            }
-        }
 
-    )
+                        var row = '<tr>' +
+                            '<td>' +
+                            '<input type="hidden" name="notice_num" value="' + notice.num + '">' + (notice.num) + '</td>';
+
+                        if (notice.del_yn == 'N') {
+                            row += '<td><a href="/board/notice_detail.html?noticeId=' + notice.num + '">' + notice.title + '</a></td>' +
+                                '<td>' + formattedDate + '</td>' +
+                                '<td>' + notice.view_cnt + '</td>' +
+                                '<td>' + notice.answer_Cnt + '</td>';
+                        } else {
+                            row += '<td style="color: red"> 삭제된 게시물 입니다. </td>' +
+                                '<td> - </td>' +
+                                '<td> - </td>' +
+                                '<td> - </td>';
+                        }
+                        row += '</tr>';
+                        tableBody.append(row);
+                    }
+                } else {
+                    var noDataRow = '<tr>' +
+                        '<td colspan="4">조회된 데이터가 없습니다</td>' +
+                        '</tr>';
+                    tableBody.append(noDataRow);
+                }
+                updatePagination(notice);
+            },
+                error: function(error){
+                    console.error('error balsang :', error);
+                }
+            }
+
+        )
     }
 
     $('.board-table').on('click', 'a', function(event) {
