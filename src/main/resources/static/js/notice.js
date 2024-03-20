@@ -86,7 +86,6 @@ function getPage(pageNumber) {
 }
 
 function noticedelete(noticeNum, noticePassword) {
-    // SweetAlert을 사용하여 비밀번호 입력 대화상자 표시
     Swal.fire({
         title: '비밀번호를 입력하세요:',
         input: 'password',
@@ -101,7 +100,6 @@ function noticedelete(noticeNum, noticePassword) {
             title: 'swal-title'
         },
         preConfirm: (password) => {
-            // 비밀번호 확인
             if (password === noticePassword) {
                 return Swal.fire({
                     title: '정말 삭제하시겠습니까?',
@@ -110,7 +108,6 @@ function noticedelete(noticeNum, noticePassword) {
                     denyButtonText: '아니오'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // 삭제 요청을 서버에 보냄
                         $.ajax({
                             url: '/board/notice/delete',
                             type: 'GET',
@@ -119,7 +116,7 @@ function noticedelete(noticeNum, noticePassword) {
                                 password: password
                             },
                             success: function (data) {
-                                // 페이지 다시 로드
+                                Swal.fire("삭제가 완료 되었습니다.");
                                 getPage(currentPage);
                             },
                             error: function (error) {
@@ -129,7 +126,6 @@ function noticedelete(noticeNum, noticePassword) {
                     }
                 });
             } else {
-                // 비밀번호가 일치하지 않는 경우 알림
                 Swal.fire({
                     icon: 'error',
                     title: '비밀번호가 일치하지 않습니다.',
