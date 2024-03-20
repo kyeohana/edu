@@ -318,3 +318,7 @@ table {
     padding-left: 8%;
     justify-content: center;
 }
+
+.swal-title {
+    font-size: 20px;
+}

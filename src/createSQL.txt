@@ -14,24 +14,23 @@ CREATE TABLE `edu_notice` (
   `upd_date` date DEFAULT NULL,
   `file` varchar(30) DEFAULT NULL,
   `file_cra_date` date DEFAULT NULL,
+  `password` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`num`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- edu.edu_answer definition
 
 GRANT SELECT ON edu.edu_answer TO 'root'@'localhost';
 
-CREATE TABLE `edu_notice` (
+CREATE TABLE `edu_answer` (
   `num` int NOT NULL AUTO_INCREMENT,
+  `num_notice` int DEFAULT NULL,
   `user_id` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `title` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `context` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `cre_date` date NOT NULL,
-  `view_cnt` varchar(30) NOT NULL,
   `del_yn` varchar(1) NOT NULL,
   `del_date` date DEFAULT NULL,
   `upd_date` date DEFAULT NULL,
-  `file` varchar(30) DEFAULT NULL,
-  `file_cra_date` date DEFAULT NULL,
-  PRIMARY KEY (`num`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`num`),
+  KEY `fk_edu_answer_num_notice` (`num_notice`)
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

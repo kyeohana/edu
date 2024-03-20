@@ -17,8 +17,8 @@
     </select>
 
     <insert id ="boardWrite" parameterType="education.kh.edu.domain.NoticeDto">
-        INSERT INTO edu.edu_notice(title, context, del_yn, view_cnt, cre_date)
-        VALUES (#{title}, #{context} ,'N', '0', NOW())
+        INSERT INTO edu.edu_notice(title, context, del_yn, view_cnt, cre_date, password)
+        VALUES (#{title}, #{context} ,'N', '0', NOW(), #{password})
     </insert>
 
     <update id = 'boardViewCnt' parameterType="education.kh.edu.domain.NoticeDto">
@@ -45,4 +45,14 @@
         INSERT INTO edu.edu_answer (num_notice, user_id, context, cre_date , del_yn, del_date, upd_date)
         VALUES (${num}, '${user_id}', '${context}', NOW(), 'N', NULL, NULL)
     </insert>
+
+    <update id="noticeDelete" parameterType="education.kh.edu.domain.NoticeDto">
+        UPDATE edu.edu_notice
+           SET del_yn = 'Y'
+         WHERE num = #{num};
+
+        UPDATE edu.edu_answer
+           SET del_yn = 'Y'
+         WHERE num_notice = #{num};
+    </update>
 </mapper>

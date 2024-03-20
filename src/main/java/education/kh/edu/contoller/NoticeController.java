@@ -78,7 +78,14 @@ public class NoticeController {
         redirectAttributes.addAttribute("noticeId", nd.getNum());
 
         return "redirect:/board/notice_detail.html";
+    }
 
+    @GetMapping("/delete")
+    public String noticeDelete (NoticeDto nd) throws Exception {
+
+        noticeService.noticeDelete(nd);
+
+        return "redirect:/board/notice.html";
 
     }
 

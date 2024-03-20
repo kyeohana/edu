@@ -16,4 +16,6 @@ public interface NoticeService {
     public List<NoticeDto> answerDetail(int id) throws Exception;
 
     public void answerWrite(NoticeDto nd) throws Exception;
+
+    public void noticeDelete(NoticeDto nd) throws Exception;
 }

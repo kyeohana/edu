@@ -42,4 +42,8 @@ public class NoticeServiceImpl implements NoticeService {
     public void answerWrite(NoticeDto nd) throws Exception{
         noticeMapper.answerWrite(nd);
     }
+
+    public void noticeDelete(NoticeDto nd) throws Exception{
+        noticeMapper.noticeDelete(nd);
+    }
 }

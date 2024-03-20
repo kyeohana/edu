@@ -14,6 +14,7 @@
     <link rel="icon" href="/img/home.png" type="image/x-icon">
     <script src="/js/notice_write.js"></script>
     <script src="/js/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>글쓰기</title>
 </head>
 
@@ -26,16 +27,20 @@
     <form id="write-form" action="/board/notice/write" method="GET" enctype="multipart/form-data">
         <div class="form-group">
             <label for="title">제목</label>
-            <input type="text" id="title" name="title" required>
+            <input type="text" id="title" name="title">
         </div>
         <div class="form-group">
             <label for="context">내용</label>
-            <textarea id="context" name="context" rows="6" required></textarea>
+            <textarea id="context" name="context" rows="6"></textarea>
             <span class="char-count">0 / 1000</span>
         </div>
         <div class="form-group">
             <label for="file">파일 첨부</label>
             <input type="file" id="file" name="file">
+        </div>
+        <div class="form-password">
+            <label for="password">비밀번호</label>
+            <input id ="password" name="password" type ="password" maxlength="5">
         </div>
         <div class="buttons">
             <button type="submit" class="btn btn-dark">저장</button>

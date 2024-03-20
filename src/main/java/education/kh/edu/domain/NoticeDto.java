@@ -17,6 +17,7 @@ public class NoticeDto {
     private String upd_date ;
     private String file ;
     private String file_cra_date ;
+    private String password;
 
     private int num_notice;
     private int answer_Cnt;
