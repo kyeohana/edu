@@ -2,8 +2,8 @@ $("document").ready(function () {
     var header = $("header");
     var sections = $("section > ul > li");
 
-    $(".header_container").load("/include/header.html");
-    $(".footer-container").load("/include/footer.html");
+    $(".header_container").load("/include/header");
+    $(".footer-container").load("/include/footer");
 
     var swiper = new Swiper(".mySwiper", {
         pagination: {

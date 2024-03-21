@@ -56,7 +56,7 @@ function getPage(pageNumber) {
                         '<input type="hidden" name="notice_num" value="' + notice.num + '">' + (notice.num) + '</td>';
 
                     if (notice.del_yn == 'N') {
-                        row += '<td><a href="/board/notice_detail.html?noticeId=' + notice.num + '">' + notice.title + '</a></td>' +
+                        row += '<td><a href="/board/notice_detail?noticeId=' + notice.num + '">' + notice.title + '</a></td>' +
                             '<td>' + formattedDate + '</td>' +
                             '<td>' + notice.view_cnt + '</td>' +
                             '<td>' + notice.answer_Cnt + '</td>'+

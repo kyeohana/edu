@@ -39,7 +39,7 @@ public class NoticeController {
 
         rttr.addFlashAttribute("msg","write" );
 
-        return "redirect:/board/notice.html";
+        return "redirect:/board/notice";
     }
 
     @GetMapping("/view_count")
@@ -77,7 +77,7 @@ public class NoticeController {
 
         redirectAttributes.addAttribute("noticeId", nd.getNum());
 
-        return "redirect:/board/notice_detail.html";
+        return "redirect:/board/notice_detail";
     }
 
     @GetMapping("/delete")
@@ -85,7 +85,7 @@ public class NoticeController {
 
         noticeService.noticeDelete(nd);
 
-        return "redirect:/board/notice.html";
+        return "redirect:/board/notice";
 
     }
 
