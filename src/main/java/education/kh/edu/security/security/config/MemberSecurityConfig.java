@@ -40,7 +40,7 @@ public class MemberSecurityConfig {
                         .hasRole("MEMBER") // ROLE 이 MEMBER 가 포함된 경우에만 인증 가능
                     .and()
                         .formLogin()
-                        .loginPage("/login/loginForm") // 로그인 페이지 설정
+                        .loginPage("/login/login") // 로그인 페이지 설정
                         .loginProcessingUrl("/login/login") // 로그인 처리 URL 설정
                         .defaultSuccessUrl("/main") // 로그인 성공 후 이동할 페이지
                         .successHandler(new MemberAuthSuccessHandler()) // 로그인 성공 후 처리할 핸들러

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="education.kh.edu.mapper.UserMapper">
+
+    <insert id="UserRegisterInsert" parameterType="education.kh.edu.domain.UserDto">
+        INSERT INTO edu.member_tb(
+                    MEMBER_LOGIN_ID,
+                    MEMBER_ROLE,
+                    MEMBER_NAME,
+                    MEMBER_PASSWORD,
+                    MEMBER_EMAIL,
+                    IS_USED,
+                    IS_DEL,
+                    ISRT_DATE,
+                    UPDT_DATE)
+            VALUES ('${MEMBER_LOGIN_ID}',
+                    'ROLE_MEMBER',
+                    '${MEMBER_NAME}',
+                    '${MEMBER_PASSWORD}',
+                    '${MEMBER_EMAIL}',
+                    'Y',
+                    'N',
+                    now(),
+                    NULL )
+    </insert>
+
+</mapper>
