@@ -46,4 +46,8 @@ public class Member {
 
     @Column(name = "UPDT_DATE")
     private LocalDateTime updtDate;
+
+    public String getName() {
+        return name != null ? name : "";
+    }
 }

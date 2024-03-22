@@ -26,13 +26,18 @@
     </ul>
     <ul class = "banner3">
         <li>
-            <p th:text="${'회원 이름 : ' + member.name}"></p>
+            <p class="member-text" th:text="'회원 이름 : ' + ${member.name}"></p>
         </li>
-        <li>
-            <a href="../login/login">로그인</a>
+        <li th:if="${member.name == ''}">
+            <a class="login-text" href="../login/login">로그인</a>
+        </li>
+        <li th:if="${member.name != ''}">
+            <a class="login-text" href="../login/logout">로그아웃</a>
         </li>
         <li>|</li>
-        <li>회원가입</li>
+        <li>
+            <a href="../login/register"> 회원가입</a>
+        </li>
         <li>메뉴</li>
     </ul>
 </div>

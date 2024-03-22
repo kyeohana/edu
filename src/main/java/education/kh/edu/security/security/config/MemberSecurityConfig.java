@@ -49,7 +49,8 @@ public class MemberSecurityConfig {
                     .and()
                         .logout()
                         .logoutUrl("/login/logout") // 로그아웃 처리 URL 설정
-                        .logoutSuccessUrl("/login/loginForm?logout=1") // 로그아웃 성공 후 이동할 페이지
+                        /*.logoutSuccessUrl("/login/loginForm?logout=1") // 로그아웃 성공 후 이동할 페이지*/
+                        .logoutSuccessUrl("/main")
                         .deleteCookies("JSESSIONID"); // 로그아웃 후 쿠키 삭제
             } catch (Exception e) {
                 throw new RuntimeException(e);

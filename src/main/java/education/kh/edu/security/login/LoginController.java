@@ -57,9 +57,18 @@ public class LoginController {
     public String mainText(@AuthenticationPrincipal MemberPrincipalDetails memberPrincipalDetails
             ,Model model) {
 
-        Member member = memberPrincipalDetails.getMember();
+        Member member = new Member();
+
+        if (memberPrincipalDetails != null && memberPrincipalDetails.getMember() != null) {
+            member = memberPrincipalDetails.getMember();
+            if (member.getName() == null) {
+                member.setName("");
+            }
+        }
 
         model.addAttribute("member", member);
+
+
         return "include/header";
     }
 }

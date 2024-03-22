@@ -31,6 +31,11 @@ public class CommonController {
         return "login/login";
     }
 
+    @GetMapping("/login/register")
+    public String registerHtml() {
+        return "login/register";
+    }
+
     @GetMapping("/include/footer")
     public String footerHtml() {
         return "include/footer";
