@@ -59,15 +59,7 @@ header {
 }
 
 .submenu_1 {
-    left : -30px;
-}
-
-.submenu_2 {
-    left : -25px;
-}
-
-.submenu_3 {
-    left : -5px;
+    left : -20px;
 }
 
 .banner2>li:hover>ul>li {

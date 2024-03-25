@@ -44,7 +44,7 @@ public class LoginController {
         return "login/login";
     }
 
-    @GetMapping("/text/text")
+  /*@GetMapping("/text/text")
     public String text(@AuthenticationPrincipal MemberPrincipalDetails memberPrincipalDetails
             ,Model model) {
 
@@ -52,7 +52,7 @@ public class LoginController {
 
         model.addAttribute("member", member);
         return "text/text";
-    }
+    }*/
     @GetMapping("/include/header")
     public String mainText(@AuthenticationPrincipal MemberPrincipalDetails memberPrincipalDetails
             ,Model model) {
