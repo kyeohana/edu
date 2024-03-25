@@ -35,7 +35,6 @@ public class NoticeController {
 
     @GetMapping("/write")
     public String boardWrite(NoticeDto vo, RedirectAttributes rttr) throws Exception {
-        logger.info("입력데이터 :" + vo);
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String loginId = authentication.getName();
