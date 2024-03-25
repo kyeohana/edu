@@ -21,11 +21,6 @@ public class CommonController {
         return "board/notice_detail";
     }
 
-    @GetMapping("/board/notice_write")
-    public String noticeWriteHtml() {
-        return "board/notice_write";
-    }
-
     @GetMapping("/login/login")
     public String loginHtml() {
         return "login/login";

@@ -11,28 +11,33 @@ $("document").ready(function () {
             success: function (data) {
 
                 var datafull = data;
-                var titledata = $(".post-title-text")
-                var contextdata = $(".post-context-text")
+                var useriddata = $(".post-userid-text");
+                var titledata = $(".post-title-text");
+                var contextdata = $(".post-context-text");
 
                 if (datafull && datafull.length > 0) {
+                    var userid_context =
+                        '<p>' + datafull[0].user_id + '</p>';
                     var title_context =
                         '<p>' + datafull[0].title + '</p>';
-
                     var content_context =
                         '<p>' + datafull[0].context + '</p>';
 
+                    useriddata.append(userid_context)
                     titledata.append(title_context)
                     contextdata.append(content_context)
 
                     $('input[name="num"]').val(noticeId);
 
                 } else {
+                    var userid_context =
+                        '<p>조회 된 데이터가 없습니다</p>';
                     var title_context =
                         '<p>조회 된 데이터가 없습니다</p>';
-
                     var content_context =
                         '<p> 조회 된 데이터가 없습니다 </p>';
 
+                    useriddata.append(userid_context)
                     titledata.append(title_context)
                     contextdata.append(content_context)
                 }

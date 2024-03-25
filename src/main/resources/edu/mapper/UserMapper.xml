@@ -25,4 +25,10 @@
                     NULL )
     </insert>
 
+    <select id="UserRegisterIdDuplication" resultType="String">
+        SELECT count(*)
+          FROM edu.member_tb
+         WHERE member_login_id = #{id}
+    </select>
+
 </mapper>

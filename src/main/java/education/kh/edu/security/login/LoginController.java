@@ -68,7 +68,24 @@ public class LoginController {
 
         model.addAttribute("member", member);
 
-
         return "include/header";
+    }
+
+    @GetMapping("/board/notice_write")
+    public String noticeWriteHtml(@AuthenticationPrincipal MemberPrincipalDetails memberPrincipalDetails
+            ,Model model) {
+
+        Member member = new Member();
+
+        if (memberPrincipalDetails != null && memberPrincipalDetails.getMember() != null) {
+            member = memberPrincipalDetails.getMember();
+            if (member.getName() == null) {
+                member.setName("");
+            }
+        }
+
+        model.addAttribute("member", member);
+
+        return "board/notice_write";
     }
 }

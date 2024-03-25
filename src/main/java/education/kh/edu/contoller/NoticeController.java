@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -34,6 +36,10 @@ public class NoticeController {
     @GetMapping("/write")
     public String boardWrite(NoticeDto vo, RedirectAttributes rttr) throws Exception {
         logger.info("입력데이터 :" + vo);
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String loginId = authentication.getName();
+        vo.setUser_id(loginId);
 
         noticeService.boardWrite(vo);
 

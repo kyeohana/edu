@@ -17,8 +17,8 @@
     </select>
 
     <insert id ="boardWrite" parameterType="education.kh.edu.domain.NoticeDto">
-        INSERT INTO edu.edu_notice(title, context, del_yn, view_cnt, cre_date, password)
-        VALUES (#{title}, #{context} ,'N', '0', NOW(), #{password})
+        INSERT INTO edu.edu_notice(user_id, title, context, del_yn, view_cnt, cre_date, password)
+        VALUES (#{user_id}, #{title}, #{context} ,'N', '0', NOW(), #{password})
     </insert>
 
     <update id = 'boardViewCnt' parameterType="education.kh.edu.domain.NoticeDto">

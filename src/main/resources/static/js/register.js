@@ -142,11 +142,31 @@ $(".document").ready(function () {
             cancelButtonText: '취소'
         }).then((result) => {
             if (result.value) {
-                Swal.fire("good job!", "등록이 완료 되었습니다.", "success")
-                    .then(() => {
-                        event.currentTarget.submit();
+                $.ajax({
+                    url : '/user/login/idDuplication',
+                    type : 'GET',
+                    data : { id : id },
+                    success : function (data) {
+                        var count = data
 
-                    });
+                        if(count < 1) {
+                            Swal.fire("good job!", "등록이 완료 되었습니다.", "success")
+                                .then(() => {
+                                    event.currentTarget.submit();
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: '아이디가 중복되었습니다.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            $(".textForm_1").addClass("error");
+                            return;
+                        }
+                    }
+                })
+
             } else {
                 Swal.fire("취소되었습니다.")
                     .then(() => {
