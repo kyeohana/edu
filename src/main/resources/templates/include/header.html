@@ -35,8 +35,11 @@
             <a class="login-text" href="/login/logout">로그아웃</a>
         </li>
         <li>|</li>
-        <li>
+        <li th:if="${member.name == ''}">
             <a href="/login/register"> 회원가입</a>
+        </li>
+        <li th:if="${member.name != ''}">
+            <a class="login-text" href="/login/mypage">마이페이지</a>
         </li>
         <li>메뉴</li>
     </ul>

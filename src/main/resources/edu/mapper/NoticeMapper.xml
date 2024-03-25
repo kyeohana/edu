@@ -43,16 +43,16 @@
 
     <insert id="answerWrite" parameterType="education.kh.edu.domain.NoticeDto">
         INSERT INTO edu.edu_answer (num_notice, user_id, context, cre_date , del_yn, del_date, upd_date)
-        VALUES (${num}, '${user_id}', '${context}', NOW(), 'N', NULL, NULL)
+        VALUES (${num}, #{user_id}, #{context}, NOW(), 'N', NULL, NULL)
     </insert>
 
     <update id="noticeDelete" parameterType="education.kh.edu.domain.NoticeDto">
         UPDATE edu.edu_notice
            SET del_yn = 'Y'
-         WHERE num = #{num};
+         WHERE num = ${num};
 
         UPDATE edu.edu_answer
            SET del_yn = 'Y'
-         WHERE num_notice = #{num};
+         WHERE num_notice = ${num};
     </update>
 </mapper>

@@ -37,4 +37,14 @@ public class UserController {
      return userService.UserRegisterIdDuplication(id);
 
     }
+
+    @PostMapping("/update")
+    public String UserRegisterUpdate(UserDto ud) throws Exception{
+        String hashedPassword = passwordEncoder.encode(ud.getMEMBER_PASSWORD());
+        ud.setMEMBER_PASSWORD(hashedPassword);
+
+        userService.UserRegisterUpdate(ud);
+
+        return "redirect:/login/logout";
+    }
 }

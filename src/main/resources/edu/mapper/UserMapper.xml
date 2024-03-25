@@ -14,11 +14,11 @@
                     IS_DEL,
                     ISRT_DATE,
                     UPDT_DATE)
-            VALUES ('${MEMBER_LOGIN_ID}',
-                    'ROLE_MEMBER',
-                    '${MEMBER_NAME}',
-                    '${MEMBER_PASSWORD}',
-                    '${MEMBER_EMAIL}',
+            VALUES (#{MEMBER_LOGIN_ID},
+                    #ROLE_MEMBER,
+                    #{MEMBER_NAME},
+                    #{MEMBER_PASSWORD},
+                    #{MEMBER_EMAIL},
                     'Y',
                     'N',
                     now(),
@@ -30,5 +30,14 @@
           FROM edu.member_tb
          WHERE member_login_id = #{id}
     </select>
+
+    <update id="UserRegisterUpdate" parameterType="education.kh.edu.domain.UserDto">
+        UPDATE edu.member_tb
+           SET member_name = #{MEMBER_NAME},
+               member_password = #{MEMBER_PASSWORD},
+               member_email = #{MEMBER_EMAIL},
+               updt_date = now()
+         WHERE member_login_id = #{MEMBER_LOGIN_ID}
+    </update>
 
 </mapper>

@@ -14,8 +14,8 @@
     <link rel="icon" href="/img/home.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/main.js"></script>
-    <script src="/js/login/register.js"></script>
-    <title>회원가입</title>
+    <script src="/js/login/mypage.js"></script>
+    <title>마이페이지</title>
 </head>
 <body>
 <header>
@@ -26,7 +26,7 @@
     <div class="main_img">
         <img src="../img/1.jpg" alt="">
         <P class="first-line"> ㅡ </P>
-        <P class="second-line">회원가입</P>
+        <P class="second-line">회원정보수정</P>
     </div>
 </div>
 
@@ -34,9 +34,9 @@
     <div class="location-inner">
         <div class="location-drop-wrap">
             <div class = "location-drop-wrap-twin">
-                <a href="/main" class="home_btn"></a>
+                <a href="/static" class="home_btn"></a>
                 <div class="location-drop">
-                    <a id="oneDepsTitle">로그인</a>
+                    <a id="oneDepsTitle">회원정보수정</a>
                     <div class="location-drop-bx">
                         <ul class="location-2depth-list">
                             <li><a href="/static" class="oneDepsTitle">메인</a></li>
@@ -51,11 +51,10 @@
     </div>
 
     <div>
-        <form class="joinForm" action="/user/login/register" method="POST">
-            <h2>회원가입</h2>
+        <form class="joinForm" th:action="@{/user/login/update}" method="POST">
+            <h2>회원정보수정</h2>
             <div class="textForm_1">
-                <input name="MEMBER_LOGIN_ID" type="text" class="id" placeholder="아이디">
-                </input>
+                <input name="MEMBER_LOGIN_ID" type="text" class="id" th:value="${member.loginId}" th:readonly="readonly">
             </div>
             <div class="textForm_2">
                 <input name="MEMBER_PASSWORD" type="password" class="pw" placeholder="비밀번호">
@@ -64,12 +63,15 @@
                 <input name="MEMBER_PASSWORD_VALIDATION" type="password" class="pw_val" placeholder="비밀번호 확인">
             </div>
             <div class="textForm_4">
-                <input name="MEMBER_NAME" type="text" class="name" placeholder="이름">
+                <input name="MEMBER_NAME" type="text" class="name" th:value="${member.name}">
             </div>
             <div class="textForm_5">
-                <input name="MEMBER_EMAIL" type="text" class="email" placeholder="이메일 / ex)abc@naver.com">
+                <input name="MEMBER_EMAIL" type="text" class="email" th:value="${member.email}">
             </div>
-            <input type="submit" class="btn_register" value="J O I N"/>
+            <input type="submit" class="btn_register" value="U P D A T E"/>
+            <div>
+                <p>회원탈퇴</p>
+            </div>
         </form>
     </div>
 </div>

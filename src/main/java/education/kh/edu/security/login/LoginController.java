@@ -88,4 +88,23 @@ public class LoginController {
 
         return "board/notice_write";
     }
+
+    @GetMapping("/login/mypage")
+    public String mypageHtml(@AuthenticationPrincipal MemberPrincipalDetails memberPrincipalDetails
+            ,Model model) {
+
+        Member member = new Member();
+
+        if (memberPrincipalDetails != null && memberPrincipalDetails.getMember() != null) {
+            member = memberPrincipalDetails.getMember();
+            if (member.getName() == null) {
+                member.setName("");
+            }
+        }
+
+        model.addAttribute("member", member);
+
+        return "login/mypage";
+    }
+
 }
