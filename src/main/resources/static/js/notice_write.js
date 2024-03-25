@@ -36,7 +36,7 @@ $("document").ready(function () {
             icon: "info",
             buttons: {
                 cancel: "취소",
-                confirm: "확인"
+                    confirm: "확인"
             },
         }).then((value) => {
             if (value) {

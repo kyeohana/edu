@@ -1,8 +1,8 @@
 <div class="banner">
-    <a href="" class ="banner1">
+    <a href="/main" class ="banner1">
         <img src="/img/home.png" alt="로고" class = "logo">
     </a>
-    <ul class = "banner2">
+    <ul class="banner2">
         <li><a href="">메인</a>
             <ul class="submenu_1">
                 <li><a href="/main">메인메뉴입니다</a></li>
@@ -29,14 +29,14 @@
             <p class="member-text" th:text="'회원 이름 : ' + ${member.name}"></p>
         </li>
         <li th:if="${member.name == ''}">
-            <a class="login-text" href="../login/login">로그인</a>
+            <a class="login-text" href="/login/login">로그인</a>
         </li>
         <li th:if="${member.name != ''}">
-            <a class="login-text" href="../login/logout">로그아웃</a>
+            <a class="login-text" href="/login/logout">로그아웃</a>
         </li>
         <li>|</li>
         <li>
-            <a href="../login/register"> 회원가입</a>
+            <a href="/login/register"> 회원가입</a>
         </li>
         <li>메뉴</li>
     </ul>

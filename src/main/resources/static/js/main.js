@@ -21,11 +21,11 @@ $("document").ready(function () {
 
     header.mouseenter(function () {
         header.stop().animate({ height: "220px" }, 500);
-        $(".banner > .banner2 > li > ul").show();
+        $(".banner2 > ul").show();
     }).mouseleave(function () {
         setTimeout(function () {
                 header.stop().animate({ height: "66px" }, 500);
-                $(".banner > .banner2 > li > ul").hide();
+                $(".banner2 > ul").hide();
         }, 10);
     });
 

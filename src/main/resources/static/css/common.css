@@ -70,7 +70,7 @@ header {
     left : -5px;
 }
 
-.banner>ul>li:hover>ul>li {
+.banner2>li:hover>ul>li {
     opacity: 1;
     transition-delay: 0.2s;
 }
@@ -86,7 +86,7 @@ header {
     color: blue;
 }
 
-.banner>ul>li>a::after {
+.banner2>li>a::after {
     content: "";
     position: absolute;
     width: 0;
@@ -97,7 +97,7 @@ header {
     transition: width 0.3s ease, left 0.3s ease;
 }
 
-.banner>ul>li:hover>a::after {
+.banner2>li:hover>a::after {
     width: 180%;
     left: -30%;
 }

@@ -1,14 +1,13 @@
 .joinForm {
-    position:absolute;
+    position:relative;
     width:400px;
-    height:400px;
-    padding: 30px, 20px;
     background-color:#FFFFFF;
     text-align:center;
-    top:40%;
+    top:327px;
     left:50%;
     transform: translate(-50%,-50%);
     border-radius: 15px;
+    padding-top: 1%;
 }
 
 .joinForm h2 {
@@ -16,7 +15,31 @@
     margin: 30px;
 }
 
-.textForm {
+.textForm_1 {
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+    padding: 10px 10px;
+}
+
+.textForm_2 {
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+    padding: 10px 10px;
+}
+
+.textForm_3 {
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+    padding: 10px 10px;
+}
+
+.textForm_4 {
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+    padding: 10px 10px;
+}
+
+.textForm_5 {
     border-bottom: 2px solid #adadad;
     margin: 30px;
     padding: 10px 10px;
@@ -34,6 +57,16 @@
 }
 
 .pw {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
+}
+
+.pw_val {
     width: 100%;
     border:none;
     outline:none;
@@ -103,4 +136,10 @@
 
 .btn_register:hover {
     background-position: right;
+}
+
+.error {
+    border-bottom: 2px solid #ff0000;
+    margin: 30px;
+    padding: 10px 10px;
 }
