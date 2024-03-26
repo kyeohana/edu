@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/notice.css">
     <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/mypage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -50,7 +51,7 @@
         </div>
     </div>
 
-    <div>
+    <a>
         <form class="joinForm" th:action="@{/user/login/update}" method="POST">
             <h2>회원정보수정</h2>
             <div class="textForm_1">
@@ -69,9 +70,13 @@
                 <input name="MEMBER_EMAIL" type="text" class="email" th:value="${member.email}">
             </div>
             <input type="submit" class="btn_register" value="U P D A T E"/>
-            <div>
-                <p th:onclick="deleteUser([[${member.loginId}]])">회원탈퇴</p>
-            </div>
+            <a class="btn_aniamtion" th:onclick="deleteUser([[${member.loginId}]])">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                회원탈퇴
+            </a>
         </form>
     </div>
 </div>

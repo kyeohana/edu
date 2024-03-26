@@ -42,7 +42,8 @@
 
     <update id="UserDelete" parameterType="education.kh.edu.domain.UserDto">
         UPDATE edu.member_tb
-           SET IS_DEL = 'Y'
+           SET IS_DEL = 'Y',
+               UPDT_DATE = now()
          WHERE MEMBER_LOGIN_ID = #{userID}
     </update>
 
