@@ -39,11 +39,19 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public String UserRegisterUpdate(UserDto ud) throws Exception{
+    public String UserRegisterUpdate(UserDto ud) throws Exception {
         String hashedPassword = passwordEncoder.encode(ud.getMEMBER_PASSWORD());
         ud.setMEMBER_PASSWORD(hashedPassword);
 
         userService.UserRegisterUpdate(ud);
+
+        return "redirect:/login/logout";
+    }
+
+    @GetMapping("/deleteUser")
+    public String UserDelete(String loginId) throws Exception {
+
+        userService.UserDelete(loginId);
 
         return "redirect:/login/logout";
     }

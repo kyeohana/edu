@@ -15,7 +15,7 @@
                     ISRT_DATE,
                     UPDT_DATE)
             VALUES (#{MEMBER_LOGIN_ID},
-                    #ROLE_MEMBER,
+                    'ROLE_MEMBER',
                     #{MEMBER_NAME},
                     #{MEMBER_PASSWORD},
                     #{MEMBER_EMAIL},
@@ -38,6 +38,12 @@
                member_email = #{MEMBER_EMAIL},
                updt_date = now()
          WHERE member_login_id = #{MEMBER_LOGIN_ID}
+    </update>
+
+    <update id="UserDelete" parameterType="education.kh.edu.domain.UserDto">
+        UPDATE edu.member_tb
+           SET IS_DEL = 'Y'
+         WHERE MEMBER_LOGIN_ID = #{userID}
     </update>
 
 </mapper>

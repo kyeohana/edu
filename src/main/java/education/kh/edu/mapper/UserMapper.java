@@ -11,4 +11,6 @@ public interface UserMapper {
     public String UserRegisterIdDuplication(String id) throws Exception;
 
     public void UserRegisterUpdate(UserDto ud) throws Exception;
+
+    public void UserDelete(String loginId) throws Exception;
 }

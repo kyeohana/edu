@@ -53,6 +53,9 @@
 
     <form class = "login_form" action="/login/login" method="POST">
         <h2>로그인</h2>
+        <div th:if="${param.error}">
+            <p style="color: red;">로그인 실패: <span th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span></p>
+        </div>
         <div class="textForm_1">
             <input name="username" type="text" class="id" placeholder="아이디">
         </div>
@@ -61,6 +64,9 @@
         </div>
         <input type="submit" class="btn_register" value="L O G I N"/>
         <!--<div class = "login_btn" style="color:yellow;"><input type="submit" value="kakao In"/></div>-->
+        <br>
+        <input type="checkbox" name="remember-me" id="rememberMe">
+        <label for="rememberMe"> 자동로그인 </label>
     </form>
 </div>
 <section class="container"></section>

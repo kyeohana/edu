@@ -70,7 +70,7 @@
             </div>
             <input type="submit" class="btn_register" value="U P D A T E"/>
             <div>
-                <p>회원탈퇴</p>
+                <p th:onclick="deleteUser([[${member.loginId}]])">회원탈퇴</p>
             </div>
         </form>
     </div>

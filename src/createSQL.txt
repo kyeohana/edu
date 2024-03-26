@@ -51,3 +51,11 @@ CREATE TABLE MEMBER_TB
     UPDT_DATE       DATETIME ,
     CONSTRAINT MEMBER_PK PRIMARY KEY (MEMBER_ID)
 );
+
+---auto_increment 초기화
+ALTER TABLE edu_notice AUTO_INCREMENT=1;
+SET @COUNT = 0;
+UPDATE edu_notice SET num = @COUNT:=@COUNT+1;
+
+---시작할 값
+ALTER TABLE member_tb AUTO_INCREMENT = 3;

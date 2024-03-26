@@ -27,4 +27,9 @@ public class UserServiceImpl implements UserService {
 
         userMapper.UserRegisterUpdate(ud);
     }
+
+    public void UserDelete (String loginId) throws Exception{
+
+        userMapper.UserDelete(loginId);
+    }
 }

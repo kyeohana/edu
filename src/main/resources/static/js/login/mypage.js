@@ -153,4 +153,37 @@ $(".document").ready(function () {
             }
         });
     })
+
 });
+
+function deleteUser(loginId) {
+
+    Swal.fire({
+        title: '삭제 하시겠습니까?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '확인',
+        cancelButtonText: '취소'
+    }).then((result) => {
+        if (result.value) {
+            Swal.fire("good job!", "삭제가 완료 되었습니다.", "success")
+                .then(() => {
+                    $.ajax({
+                        url : '/user/login/deleteUser',
+                        type : 'GET',
+                        data : { loginId : loginId },
+                        success : function() {
+                            console.log("삭제가 완료 되었습니다.");
+                        }
+                    })
+                    window.location.replace('/login/logout');
+                });
+        } else {
+            Swal.fire("취소되었습니다.")
+                .then(() => {
+                });
+        }
+    });
+}
