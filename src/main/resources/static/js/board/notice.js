@@ -1,5 +1,8 @@
 $("document").ready(function () {
 
+    var urlParams = new URLSearchParams(window.location.search);
+    search = urlParams.get('title_search') || '';
+
     var currentPage = 1;
 
     $('.board-table').on('click', 'a', function(event) {
@@ -18,14 +21,22 @@ $("document").ready(function () {
             }
         });
     });
-    getPage(currentPage);
+
+    getPage(currentPage, search);
 });
 
-function getPage(pageNumber) {
+function getPage(pageNumber,search) {
 
+    var title_search = search;
     currentPage = pageNumber;
     var itemsPerPage = 10;
     scrollPosition = $(window).scrollTop();
+
+    if (typeof title_search === 'undefined' || title_search === null) {
+        title_search = '';
+    } else {
+        title_search = search
+    }
 
     $.ajax({
         url: '/board/notice/list',
@@ -33,7 +44,8 @@ function getPage(pageNumber) {
         dataType: 'json',
         data: {
             page: pageNumber,
-            itemsPerPage: itemsPerPage
+            itemsPerPage: itemsPerPage,
+            title_search : title_search
         },
         success: function(data) {
             console.log(data);
@@ -53,7 +65,8 @@ function getPage(pageNumber) {
 
                     var row = '<tr>' +
                         '<td>' +
-                        '<input type="hidden" name="notice_num" value="' + notice.num + '">' + (notice.num) + '</td>';
+                        /*'<input type="hidden" name="notice_num" value="' + notice.num + '">' + (notice.num) + '</td>';*/
+                        '<input type="hidden" name="notice_num" value="' + notice.num + '">' + (notices.length - i) + '</td>';
 
                     if (notice.del_yn == 'N') {
                         row += '<td><a href="/board/notice_detail?noticeId=' + notice.num + '">' + notice.title + '</a></td>' +
@@ -117,7 +130,7 @@ function noticedelete(noticeNum, noticePassword) {
                             },
                             success: function (data) {
                                 Swal.fire("삭제가 완료 되었습니다.");
-                                getPage(currentPage);
+                                getPage(currentPage, search);
                             },
                             error: function (error) {
                                 console.error('삭제에 실패했습니다:', error);
@@ -138,11 +151,12 @@ function noticedelete(noticeNum, noticePassword) {
 }
 
 function updatePagination(notice) {
-    totalPages = notice.totalPages;
+    var totalPages = (notice.totalPages);
     var paginationContainer = $('.pagination');
-    var maxVisiblePages = 10;
-    var totalPages = Math.ceil(totalPages / maxVisiblePages);
-    var currentPage = 1;
+    var maxVisiblePages = 5
+    var totalPagesMax = Math.ceil(totalPages / 10);
+    var startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    var StartPageMax = startPage + 3
 
     paginationContainer.empty();
 
@@ -151,13 +165,19 @@ function updatePagination(notice) {
         prevButton.addClass('disabled');
     } else {
         prevButton.click(function () {
-            getPage(currentPage - 1);
+            currentPage--;
+            getPage(currentPage, search);
+            $(window).scrollTop(scrollPosition);
         });
     }
+
     paginationContainer.append(prevButton);
 
-    var startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-    var endPage = Math.min(startPage + maxVisiblePages - 1, totalPages);
+    if (totalPagesMax > StartPageMax){
+        var endPage = Math.min(startPage + maxVisiblePages - 1, totalPages);
+    } else {
+        var endPage = StartPageMax
+    }
 
     if (endPage - startPage + 1 < maxVisiblePages) {
         startPage = Math.max(1, totalPages - maxVisiblePages + 1);
@@ -165,19 +185,26 @@ function updatePagination(notice) {
 
     for (var i = startPage; i <= endPage; i++) {
         var pageButton = $('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
+        if (i === currentPage) {
+            pageButton.addClass('active');
+        }
         pageButton.find('a').click(function () {
-            getPage($(this).text());
+            currentPage = parseInt($(this).text());
+            getPage(currentPage, search);
+            $(window).scrollTop(scrollPosition);
         });
         paginationContainer.append(pageButton);
         $(window).scrollTop(scrollPosition);
     }
 
     var nextButton = $('<li class="page-item"><a class="page-link" href="#">다음</a></li>');
-    if (currentPage === totalPages) {
+    if (currentPage === endPage) {
         nextButton.addClass('disabled');
     } else {
         nextButton.click(function () {
-            getPage(currentPage + 1);
+            currentPage++;
+            getPage(currentPage, search);
+            $(window).scrollTop(scrollPosition);
         });
     }
     paginationContainer.append(nextButton);

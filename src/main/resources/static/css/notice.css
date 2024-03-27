@@ -322,3 +322,15 @@ table {
 .swal-title {
     font-size: 20px;
 }
+
+.page-item.active .page-link {
+    font-size: large;
+    color: blue;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none; /* 클릭 이벤트 비활성화 */
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}

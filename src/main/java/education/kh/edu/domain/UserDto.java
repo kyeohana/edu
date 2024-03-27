@@ -14,4 +14,8 @@ public class UserDto {
   private String IS_DEL;
   private String ISRT_DATE;
   private String UPDT_DATE;
+  private String MEMBER_ADDRESS_CODE;
+  private String MEMBER_ADDRESS;
+  private String MEMBER_ADDRESS_DETAIL;
+  private String MEMBER_ADDRESS_DETAIL_VAL;
 }

@@ -7,7 +7,7 @@ import education.kh.edu.domain.NoticeDto;
 @Mapper
 public interface NoticeMapper {
 
-    public List<NoticeDto> getNoticeList(int itemsPerPage, int offset) throws Exception;
+    public List<NoticeDto> getNoticeList(int itemsPerPage, int offset, String title_search) throws Exception;
 
     public void boardWrite(NoticeDto vo) throws Exception;
 

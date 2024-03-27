@@ -24,9 +24,11 @@ public class NoticeController {
 
     @GetMapping("/list")
     @ResponseBody
-    public ResponseEntity<?> getNoticeList(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int itemsPerPage) {
+    public ResponseEntity<?> getNoticeList(@RequestParam(defaultValue = "1") int page,
+                                           @RequestParam(defaultValue = "10") int itemsPerPage,
+                                           @RequestParam String title_search) {
         try {
-            return ResponseEntity.ok().body(noticeService.getNoticeList(page, itemsPerPage));
+            return ResponseEntity.ok().body(noticeService.getNoticeList(page, itemsPerPage, title_search));
         } catch (Exception e) {
             logger.error("Error occurred while retrieving notice list: {}", e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to retrieve notice list");

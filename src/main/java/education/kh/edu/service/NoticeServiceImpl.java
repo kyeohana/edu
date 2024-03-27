@@ -16,9 +16,9 @@ public class NoticeServiceImpl implements NoticeService {
     private NoticeMapper noticeMapper;
 
     @Override
-    public List<NoticeDto> getNoticeList(int page, int itemsPerPage) throws Exception {
+    public List<NoticeDto> getNoticeList(int page, int itemsPerPage, String title_search) throws Exception {
         int offset = (page - 1) * itemsPerPage;
-        return noticeMapper.getNoticeList(itemsPerPage, offset);
+        return noticeMapper.getNoticeList(itemsPerPage, offset, title_search);
     }
 
     @Override

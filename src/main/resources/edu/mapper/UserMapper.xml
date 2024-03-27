@@ -13,7 +13,11 @@
                     IS_USED,
                     IS_DEL,
                     ISRT_DATE,
-                    UPDT_DATE)
+                    UPDT_DATE,
+                    MEMBER_ADDRESS_CODE,
+                    MEMBER_ADDRESS,
+                    MEMBER_ADDRESS_DETAIL,
+                    MEMBER_ADDRESS_DETAIL_VAL)
             VALUES (#{MEMBER_LOGIN_ID},
                     'ROLE_MEMBER',
                     #{MEMBER_NAME},
@@ -22,7 +26,11 @@
                     'Y',
                     'N',
                     now(),
-                    NULL )
+                    NULL,
+                    #{MEMBER_ADDRESS_CODE},
+                    #{MEMBER_ADDRESS},
+                    #{MEMBER_ADDRESS_DETAIL},
+                    #{MEMBER_ADDRESS_DETAIL_VAL})
     </insert>
 
     <select id="UserRegisterIdDuplication" resultType="String">

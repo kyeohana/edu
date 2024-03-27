@@ -3,7 +3,7 @@
     width:400px;
     background-color:#FFFFFF;
     text-align:center;
-    top:327px;
+    top:520px;
     left:50%;
     transform: translate(-50%,-50%);
     border-radius: 15px;
@@ -60,6 +60,22 @@
     border-bottom: 2px solid #adadad;
     margin: 30px;
     padding: 10px 10px;
+}
+
+.textForm_6 {
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+    padding: 10px 10px;
+}
+
+.address {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
 }
 
 

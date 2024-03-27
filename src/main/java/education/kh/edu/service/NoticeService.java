@@ -5,7 +5,7 @@ import education.kh.edu.domain.NoticeDto;
 
 public interface NoticeService {
 
-    public List<NoticeDto> getNoticeList(int page, int itemsPerPage) throws Exception;
+    public List<NoticeDto> getNoticeList(int page, int itemsPerPage, String title_search) throws Exception;
 
     public void boardWrite(NoticeDto vo) throws  Exception;
 
