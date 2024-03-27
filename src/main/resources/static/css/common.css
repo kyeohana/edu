@@ -62,6 +62,16 @@ header {
     left : -20px;
 }
 
+.submenu_2 {
+    left : -5px
+}
+
+/*
+.submenu_3 {
+    left : -20px;
+}
+*/
+
 .banner2>li:hover>ul>li {
     opacity: 1;
     transition-delay: 0.2s;

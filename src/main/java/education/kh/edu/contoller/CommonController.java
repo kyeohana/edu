@@ -36,4 +36,14 @@ public class CommonController {
         return "include/footer";
     }
 
+    @GetMapping("/information/location")
+    public String locationHtml() {
+        return "/information/location";
+    }
+
+    @GetMapping("/information/play")
+    public String playHtml() {
+        return "/information/play";
+    }
+
 }
