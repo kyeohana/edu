@@ -26,7 +26,7 @@ $(document).ready(function(){
                     var openrun = $(this).find("openrun").text();
                     var prfstate = $(this).find("prfstate").text();
 
-                    html += "<div>";
+                    html += "<div class='play_list'>";
                     html += "<img src='" + poster + "' alt='포스터'>";
                     html += "<p>제목: " + prfnm + "</p>";
                     html += "<p>시작 날짜: " + prfpdfrom + "</p>";
@@ -45,5 +45,9 @@ $(document).ready(function(){
                 console.error(xhr.responseText);
             }
         });
+    });
+    $(".selector").flatpickr({
+        enableTime: false,
+        dateFormat: "Ymd",
     });
 });
