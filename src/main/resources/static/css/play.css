@@ -27,12 +27,26 @@ button[type="submit"]:hover {
     border-top: 2px solid #ccc;
     padding-top: 20px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+#performances-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
 }
 
 #performance img {
     max-width: 100%;
     height: auto;
     margin-top: 10px;
+}
+
+.play_list {
+    width: 100%;
+    max-width: 240px;
 }
 
 .play_list p{

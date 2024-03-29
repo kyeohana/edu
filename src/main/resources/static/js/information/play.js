@@ -42,7 +42,7 @@ $(document).ready(function(){
                 $("#performances").html(html);
             },
             error: function(xhr, status, error) {
-                console.error(xhr.responseText);
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
             }
         });
     });
