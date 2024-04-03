@@ -155,8 +155,21 @@ function updatePagination(notice) {
     var paginationContainer = $('.pagination');
     var maxVisiblePages = 5
     var totalPagesMax = Math.ceil(totalPages / 10);
-    var startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-    var StartPageMax = startPage + 3
+    var endPage = totalPagesMax
+
+    if (currentPage === endPage) {
+        var startPage = Math.max(1, currentPage - 4);
+    } else if (currentPage === endPage - 1) {
+        var startPage = Math.max(1, currentPage - 3);
+    } else {
+        var startPage = Math.max(1, currentPage - 2);
+    }
+
+    if (totalPagesMax - 2 > startPage + 2){
+        var endPages = Math.min(startPage + maxVisiblePages - 1, totalPages);
+    } else {
+        var endPages = totalPagesMax
+    }
 
     paginationContainer.empty();
 
@@ -173,17 +186,13 @@ function updatePagination(notice) {
 
     paginationContainer.append(prevButton);
 
-    if (totalPagesMax > StartPageMax){
-        var endPage = Math.min(startPage + maxVisiblePages - 1, totalPages);
-    } else {
-        var endPage = StartPageMax
-    }
 
-    if (endPage - startPage + 1 < maxVisiblePages) {
+
+/*    if (endPage - startPage + 1 < maxVisiblePages) {
         startPage = Math.max(1, totalPages - maxVisiblePages + 1);
-    }
+    }*/
 
-    for (var i = startPage; i <= endPage; i++) {
+    for (var i = startPage; i <= endPages; i++) {
         var pageButton = $('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
         if (i === currentPage) {
             pageButton.addClass('active');
@@ -198,7 +207,7 @@ function updatePagination(notice) {
     }
 
     var nextButton = $('<li class="page-item"><a class="page-link" href="#">다음</a></li>');
-    if (currentPage === endPage) {
+    if (currentPage === endPages) {
         nextButton.addClass('disabled');
     } else {
         nextButton.click(function () {

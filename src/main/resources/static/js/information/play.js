@@ -1,10 +1,50 @@
 $(document).ready(function(){
+
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = ("0" + (1 + date.getMonth())).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+
+    var yyyymmdd = year + month + day;
+
+    $("#startDate").val(yyyymmdd);
+    $("#endDate").val(yyyymmdd);
+
     $(".play_form").submit(function(event) {
         event.preventDefault();
 
+        var startDate = $("#startDate").val();
+        var endDate = $("#endDate").val();
+
+        if (!startDate) {
+            Swal.fire("시작 날짜를 입력해주세요");
+            $("#startDate").addClass("error");
+            return false;
+        }
+
+        if (startDate) {
+            $("#startDate").removeClass("error");
+        }
+
+        if (!endDate) {
+            Swal.fire("종료 날짜를 입력해주세요");
+            $("#endDate").addClass("error");
+            return false;
+        }
+
+        if (endDate) {
+            $("#endDate").removeClass("error");
+        }
+
+        if(startDate > endDate) {
+            Swal.fire("종료 날짜를 시작 날짜보다 </br> 크거나 같게 해주세요");
+            $("#endDate").addClass("error");
+            return false;
+        }
+
         var formData = {
-            startDate: $("#startDate").val(),
-            endDate: $("#endDate").val()
+            startDate,
+            endDate
         };
 
         $.ajax({

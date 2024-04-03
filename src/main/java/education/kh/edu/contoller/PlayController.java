@@ -25,7 +25,7 @@ public class PlayController {
                 "&stdate=" + startDate +
                 "&eddate=" + endDate +
                 "&cpage=1" +
-                "&rows=10" +
+                "&rows=100" +
                 "&prfstate=02" +
                 "&signgucode=11" +
                 "&signgucodesub=1111" +

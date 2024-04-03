@@ -57,7 +57,7 @@
     <div>
         <form class="play_form" action ="/festivals" type="GET">
             <label for="startDate">시작 날짜:</label>
-            <input type="text" id="startDate" name="startDate" class="selector" placeholder="YYYYMMDD" readonly>
+            <input type="text" id="startDate" name="startDate" class="selector" placeholder="YYYYMMDD">
             <label for="endDate">종료 날짜:</label>
             <input type="text" id="endDate" name="endDate" class="selector" placeholder="YYYYMMDD" readonly>
             <!--<label for="play_title">제목 입력:</label>
@@ -65,9 +65,21 @@
             <button class="checkbox" type="submit">조회</button>
         </form>
     </div>
+    <p style="font-size: small; color: gray; margin-bottom:10px; text-align: center;">
+        * 선택해주신 날짜 사이에 진행중인 공연이 전부 표기됩니다.
+    </p>
     <div id="performances"></div>
 </div>
 <section class="container"></section>
+
+<div class="modal">
+    <button>&times;</button>
+    <div class="modalBox">
+        <img src="" alt="">
+        <p></p>
+    </div>
+</div>
+
 <footer>
     <div class ="footer-container"> </div>
 </footer>
