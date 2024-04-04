@@ -173,6 +173,14 @@ function updatePagination(notice) {
 
     paginationContainer.empty();
 
+    var exitPrevButton = $('<li class="page-item"><a class="page-link" href="#">처음</a>')
+    exitPrevButton.click(function () {
+        getPage(1, search);
+        $(window).scrollTop(scrollPosition);
+    })
+
+    paginationContainer.append(exitPrevButton);
+
     var prevButton = $('<li class="page-item"><a class="page-link" href="#">이전</a></li>');
     if (currentPage === 1) {
         prevButton.addClass('disabled');
@@ -185,12 +193,6 @@ function updatePagination(notice) {
     }
 
     paginationContainer.append(prevButton);
-
-
-
-/*    if (endPage - startPage + 1 < maxVisiblePages) {
-        startPage = Math.max(1, totalPages - maxVisiblePages + 1);
-    }*/
 
     for (var i = startPage; i <= endPages; i++) {
         var pageButton = $('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
@@ -216,5 +218,16 @@ function updatePagination(notice) {
             $(window).scrollTop(scrollPosition);
         });
     }
+
     paginationContainer.append(nextButton);
+
+    var exitNextButton = $('<li class="page-item"><a class="page-link" href="#">끝</a>')
+
+    exitNextButton.click(function () {
+        getPage(totalPagesMax, search);
+        $(window).scrollTop(scrollPosition);
+    });
+
+    paginationContainer.append(exitNextButton);
+
 }
