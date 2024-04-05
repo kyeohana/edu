@@ -5,19 +5,31 @@ import education.kh.edu.service.NoticeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/board/notice")
 public class NoticeController {
 
     private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
+
+    @Value("${file.upload-dir}")
+    private String uploadDir;
 
     @Autowired
     private NoticeService noticeService;
@@ -35,16 +47,45 @@ public class NoticeController {
         }
     }
 
-    @GetMapping("/write")
-    public String boardWrite(NoticeDto vo, RedirectAttributes rttr) throws Exception {
+    @PostMapping("/write")
+    public String boardWrite(HttpServletRequest request, NoticeDto vo, RedirectAttributes rttr) throws Exception {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String loginId = authentication.getName();
         vo.setUser_id(loginId);
 
+        if (request instanceof MultipartHttpServletRequest) {
+            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+            MultipartFile file = multipartRequest.getFile("file");
+            if (file != null && !file.isEmpty()) {
+                String fileName = file.getOriginalFilename();
+                File dir = new File(uploadDir);
+                if (!dir.exists()) {
+                    dir.mkdirs();
+                }
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+                String randomString = sdf.format(new Date());
+                String fileNameWithoutExtension = fileName;
+                String extension = "";
+                int index = fileName.lastIndexOf('.');
+                if (index > 0 ){
+                    extension = fileName.substring(index);
+                    fileNameWithoutExtension = fileName.substring(0,index);
+                }
+
+                File uploadFile = new File(uploadDir + File.separator + fileNameWithoutExtension + randomString  + extension);
+                file.transferTo(uploadFile);
+
+                vo.setFilePath(fileNameWithoutExtension + randomString  + extension);
+                vo.setFile_cra_date(new Date());
+            }
+        } else {
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to increase view count.");
+        }
+
         noticeService.boardWrite(vo);
 
-        rttr.addFlashAttribute("msg","write" );
+        rttr.addFlashAttribute("msg", "write");
 
         return "redirect:/board/notice";
     }
