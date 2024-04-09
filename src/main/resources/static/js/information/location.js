@@ -7,6 +7,29 @@ $(document).ready(function () {
 
 
 function click_enddate(){
+
+    var endDate = $("#endDate").val();
+    var endDateTime = new Date(endDate);
+
+    var lastDay = new Date(endDateTime.getFullYear(), endDateTime.getMonth() + 1, 0);
+
+    var dayOfWeek = lastDay.getDay();
+
+
+    if(dayOfWeek === 0){
+        lastDay.setDate(lastDay.getDate() - 2);
+    }
+    else if(dayOfWeek === 6){
+        lastDay.setDate(lastDay.getDate() - 1);
+    }
+
+    if (parseInt(endDate.toString().substring(8,10)) === lastDay.getDate()) {
+        alert('마지막주');
+    } else {
+        alert('아닙니다');
+    }
+
+/*
     var endDate = $("#endDate").val();
     var endDateTime = new Date(endDate);
 
@@ -45,5 +68,7 @@ function click_enddate(){
         } else {
             Swal.fire('아닙니다');
         }
-    }
+    }*/
 };
+
+
