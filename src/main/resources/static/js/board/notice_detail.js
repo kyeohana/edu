@@ -14,6 +14,7 @@ $("document").ready(function () {
                 var useriddata = $(".post-userid-text");
                 var titledata = $(".post-title-text");
                 var contextdata = $(".post-context-text");
+                var filelink = $(".file-title-text");
 
                 if (datafull && datafull.length > 0) {
                     var userid_context =
@@ -22,10 +23,15 @@ $("document").ready(function () {
                         '<p>' + datafull[0].title + '</p>';
                     var content_context =
                         '<p>' + datafull[0].context + '</p>';
+                    if (file_link && file_link.length > 0 ) {
+                        var file_link =
+                            '<a>' + dafafull[0].file + '</a>';
+                    }
 
                     useriddata.append(userid_context)
                     titledata.append(title_context)
                     contextdata.append(content_context)
+                    filelink.append(file_link)
 
                     $('input[name="num"]').val(noticeId);
 

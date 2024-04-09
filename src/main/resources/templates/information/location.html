@@ -13,8 +13,12 @@
     <link rel="icon" href="/img/home.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/information/location.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <title>회원가입</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <title>위치</title>
 </head>
 <body>
 <header>
@@ -40,6 +44,11 @@
       </div>
     </div>
   </div>
+</div>
+<div class ="end_date" style="margin-left:45%; margin-top:2%;">
+    <input type="text" id="endDate" name="endDate" class="selector" placeholder="YYYYMMDD">
+    마지막 날 체크
+    <button class = "endDate_click" onclick="click_enddate()">클릭 </button>
 </div>
 <section class="container"></section>
 <footer>
