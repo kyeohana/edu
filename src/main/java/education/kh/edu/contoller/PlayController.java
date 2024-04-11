@@ -34,4 +34,15 @@ public class PlayController {
 
         return restTemplate.getForObject(apiUrl, String.class);
     }
+
+    @GetMapping("/location/populartiy")
+    public String getPopulartiy(){
+
+            String apiUrl = "https://www.nate.com/main/srv/news/data/keywordList.today.json";
+
+            return restTemplate.getForObject(apiUrl, String.class);
+
+
+
+    };
 }

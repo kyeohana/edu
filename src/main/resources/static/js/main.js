@@ -47,3 +47,24 @@ $("document").ready(function () {
     });
 
 });
+
+
+function popularity_button() {
+
+    $.ajax({
+        url: "/location/populartiy",
+        type : "GET",
+        dataType: "JSON",
+        success: function(response){
+            console.log(response);
+            var data = response.data;
+            var popularityContent = "";
+            var dataUpdateTime = response.update_dtm;
+            for (var i = 0; i < Object.keys(data).length; i++) {
+                popularityContent += '<div>' + (i + 1)+ '.' +  data[i].keyword_name + '</div>';
+            }
+            $(".popularity").html(popularityContent);
+        },
+
+    });
+}

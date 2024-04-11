@@ -1,9 +1,11 @@
-
 $(document).ready(function () {
     $(".selector").flatpickr({
         enableTime: false,
     });
+
 })
+
+
 
 
 function click_enddate(){
