@@ -8,6 +8,31 @@
     --container_width: 1080px;
 }
 
+html::-webkit-scrollbar {
+    width: 10px;
+}
+html::-webkit-scrollbar-track {
+    background: black;
+}
+html::-webkit-scrollbar-thumb {
+    background: gray;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+
+.container::-webkit-scrollbar {
+    width: 15px;
+}
+.container::-webkit-scrollbar-track {
+    background: gray;
+}
+.container::-webkit-scrollbar-thumb {
+    background: paleturquoise;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+    border-radius: 8px;
+}
+
 body {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
