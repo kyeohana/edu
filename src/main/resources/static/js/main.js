@@ -46,6 +46,18 @@ $("document").ready(function () {
         checkScroll();
     });
 
+    $(".popularityClose").click(function (event) {
+        event.preventDefault()
+
+        $(".popularity").hide();
+        $(".popularity").removeClass("show");
+        $(".popularityUptDtn").hide();
+        $(".popularityClose").hide();
+
+    })
+
+    $(".popularityClose").hide();
+
 });
 
 
@@ -59,12 +71,25 @@ function popularity_button() {
             console.log(response);
             var data = response.data;
             var popularityContent = "";
-            var dataUpdateTime = response.update_dtm;
             for (var i = 0; i < Object.keys(data).length; i++) {
-                popularityContent += '<div>' + (i + 1)+ '.' +  data[i].keyword_name + '</div>';
+                var keywordService = data[i].keyword_service.replace(/<br\s*\/?>/gi, '');
+                popularityContent += '<div>' + (i + 1)+ '.' +  keywordService + '</div>';
             }
+
+            var popularityUptDtn = '<div>'+ response.update_dtm +'</div>'
+
+            $(".popularity").show()
+            $(".popularity").addClass("show");
+            $(".popularityUptDtn").show();
+            $(".popularityClose").show();
+
+
+            $(".popularityUptDtn").html(popularityUptDtn);
             $(".popularity").html(popularityContent);
         },
+        error() {
+            alert("인기 검색어 불러오기 중 에러발생")
+        }
 
     });
 }
