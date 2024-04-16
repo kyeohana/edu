@@ -23,6 +23,31 @@ $("document").ready(function () {
     });
 
     getPage(currentPage, search);
+
+    $(".dtnBtn_2").hide();
+    $(".hideDepsParent").hide();
+
+    $(".dtnBtn").click(function (event) {
+        event.preventDefault()
+
+        $(".hideDepsTitle").addClass("show");
+        $(".dtnBtn_2").show();
+        $(".dtnBtn").hide();
+        $(".hideDepsParent").show();
+
+    });
+
+    $(".dtnBtn_2").click(function (event) {
+        event.preventDefault()
+
+        $(".hideDepsTitle").removeClass("show");
+        $(".dtnBtn_2").hide();
+        $(".dtnBtn").show();
+        $(".hideDepsParent").hide();
+
+
+    });
+
 });
 
 function getPage(pageNumber,search) {

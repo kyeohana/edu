@@ -14,6 +14,7 @@
     <link rel="icon" href="/img/home.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/board/notice.js"></script>
     <script src="/js/information/location.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
@@ -35,17 +36,34 @@
 </div>
 
 <div class="location-wrap">
-  <div class="location-inner">
-    <div class="location-drop-wrap">
-      <div class = "location-drop-wrap-twin">
-        <a href="/main" class="home_btn"></a>
-        <div class="location-drop">
-          <a id="oneDepsTitle">위치</a>
+    <div class="location-inner">
+        <div class="location-drop-wrap">
+            <div class = "location-drop-wrap-twin">
+                <a href="/information/location" class="home_btn"></a>
+                <div class="location-drop">
+                    <a id="oneDepsTitle">위치</a>
+                    <a href="#" class="dtnBtn">
+                        <span class="material-symbols-outlined">
+                            arrow_drop_down
+                        </span>
+                    </a>
+                    <a href="#" class="dtnBtn_2">
+                        <span class="material-symbols-outlined">
+                            arrow_drop_up
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="hideDepsParent">
+                <div class="hideDepsTitle">
+                    <a href="/information/location" id="twoDepsTitle">위치</a>
+                </div>
+                <div class="hideDepsTitle">
+                    <a href="/information/play" id="threeDepsTitle">축제</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
 <div class ="end_date" style="margin-left:45%; margin-top:2%;">
     <input type="text" id="endDate" name="endDate" class="selector" placeholder="YYYYMMDD">
     마지막 날 체크

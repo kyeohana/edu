@@ -24,7 +24,7 @@ $("document").ready(function () {
         $(".banner2 > ul").show();
     }).mouseleave(function () {
         setTimeout(function () {
-                header.stop().animate({ height: "66px" }, 500);
+                header.stop().animate({ height: "86px" }, 500);
                 $(".banner2 > ul").hide();
         }, 10);
     });

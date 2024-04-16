@@ -83,16 +83,16 @@
     height: 100%;
     border-right: 1px solid #f0f0f0;
     position: relative;
+    display: flex;
 }
 
 .location-drop > a{
     height: 100%;
-    padding: 0 60px 0 30px;
+    padding: 0 0px 0 30px;
     display: flex;
     align-items: center;
     position: relative;
     font-weight: 500;
-    min-width: 200px;
 }
 
 .location-drop-bx{
@@ -331,4 +331,35 @@ table {
 .page-item.disabled .page-link {
     color: #f0f0f0;
     pointer-events: none;
+}
+
+.dtnBtn {
+    padding-left: 106px !important;
+    padding-right: 22px !important;
+}
+
+.hideDepsTitle {
+    opacity: 0;
+}
+
+.hideDepsTitle.show {
+    display: flex;
+    padding: 13px 28px;
+    opacity: 1;
+}
+
+.dtnBtn_2{
+    padding-left: 106px !important;
+    padding-right: 22px !important;
+}
+
+.hideDepsParent{
+    margin-top: 0px;
+    width: 210px;
+    height: 105px;
+    border: 1px solid #f0f0f0;
+    box-sizing: border-box;
+    margin-left: 56px;
+    padding-top: 10px;
+    background-color: white;
 }

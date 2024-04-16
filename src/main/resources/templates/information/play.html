@@ -16,6 +16,7 @@
     <script src="/js/main.js"></script>
     <script src="/js/information/play.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/js/board/notice.js"></script>
 
     <!--data library-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -39,9 +40,27 @@
     <div class="location-inner">
         <div class="location-drop-wrap">
             <div class = "location-drop-wrap-twin">
-                <a href="/main" class="home_btn"></a>
+                <a href="/information/location" class="home_btn"></a>
                 <div class="location-drop">
-                    <a id="oneDepsTitle">위치</a>
+                    <a id="oneDepsTitle">축제</a>
+                    <a href="#" class="dtnBtn">
+                        <span class="material-symbols-outlined">
+                            arrow_drop_down
+                        </span>
+                    </a>
+                    <a href="#" class="dtnBtn_2">
+                        <span class="material-symbols-outlined">
+                            arrow_drop_up
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="hideDepsParent">
+                <div class="hideDepsTitle">
+                    <a href="/information/location" id="twoDepsTitle">위치</a>
+                </div>
+                <div class="hideDepsTitle">
+                    <a href="/information/play" id="threeDepsTitle">축제</a>
                 </div>
             </div>
         </div>
