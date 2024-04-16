@@ -226,3 +226,7 @@ section>ul>li.active {
     margin-top: 10px;
     text-align: right;
 }
+
+.popularityCloseHover:hover {
+    color : #0056b3;
+}
