@@ -136,7 +136,7 @@ section>ul>li.active {
 .popularity-sidebar {
     position: fixed;
     right: 45%;
-    margin-right: -720px;
+    margin-right: -40%;
     text-align:center;
     margin-top: -470px;
     z-index: 999;
@@ -230,3 +230,4 @@ section>ul>li.active {
 .popularityCloseHover:hover {
     color : #0056b3;
 }
+

@@ -1,5 +1,4 @@
 $("document").ready(function () {
-    var header = $("header");
     var sections = $("section > ul > li");
 
     $(".header_container").load("/include/header");
@@ -19,15 +18,7 @@ $("document").ready(function () {
         loopAdditionalSlides: 1,
     });
 
-    header.mouseenter(function () {
-        header.stop().animate({ height: "220px" }, 500);
-        $(".banner2 > ul").show();
-    }).mouseleave(function () {
-        setTimeout(function () {
-                header.stop().animate({ height: "86px" }, 500);
-                $(".banner2 > ul").hide();
-        }, 10);
-    });
+
 
     function checkScroll() {
         var windowHeight = $(window).height();
@@ -61,6 +52,8 @@ $("document").ready(function () {
 });
 
 
+
+
 function popularity_button() {
 
     $.ajax({
@@ -92,4 +85,5 @@ function popularity_button() {
         }
 
     });
+
 }

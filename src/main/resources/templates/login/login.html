@@ -15,6 +15,7 @@
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="icon" href="/img/home.png" type="image/x-icon">
     <script src="/js/main.js"></script>
+    <script src="/js/board/notice.js"></script>
     <title>로그인</title>
 </head>
 
@@ -22,58 +23,74 @@
 <header>
     <div class="header_container"></div>
 </header>
-
-<div class="swiper-slide">
-    <div class="main_img">
-        <img src="../img/1.jpg" alt="">
-        <P class="first-line"> ㅡ </P>
-        <P class="second-line">로그인</P>
+<div class="overlay">
+    <div class="swiper-slide">
+        <div class="main_img">
+            <img src="../img/1.jpg" alt="">
+            <P class="first-line"> ㅡ </P>
+            <P class="second-line">로그인</P>
+        </div>
     </div>
-</div>
 
-<div class="location-wrap">
-    <div class="location-inner">
-        <div class="location-drop-wrap">
-            <div class = "location-drop-wrap-twin">
-                <a href="/main" class="home_btn"></a>
-                <div class="location-drop">
-                    <a id="oneDepsTitle">로그인</a>
-                    <div class="location-drop-bx">
-                        <ul class="location-2depth-list">
-                            <li><a href="/static" class="oneDepsTitle">메인</a></li>
-                            <li><a href="/static" class="oneDepsTitle">메인</a></li>
-                            <li><a href="/static" class="oneDepsTitle">메인</a></li>
-                        </ul>
-                        <a href="/main" class ="home_pic"></a>
+    <div class="location-wrap">
+        <div class="location-inner">
+            <div class="location-drop-wrap">
+                <div class = "location-drop-wrap-twin">
+                    <a href="/information/location" class="home_btn"></a>
+                    <div class="location-drop">
+                        <a id="oneDepsTitle">로그인</a>
+                        <a href="#" class="dtnBtn">
+                            <span class="material-symbols-outlined">
+                                arrow_drop_down
+                            </span>
+                        </a>
+                        <a href="#" class="dtnBtn_2">
+                            <span class="material-symbols-outlined">
+                                arrow_drop_up
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hideDepsParent">
+                    <div class="hideDepsTitle">
+                        <a href="/login/login" id="twoDepsTitle">로그인</a>
+                    </div>
+                    <div class="hideDepsTitle">
+                        <a href="/login/register" id="threeDepsTitle">회원가입</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <form class = "login_form" action="/login/login" method="POST">
-        <h2>로그인</h2>
-        <div th:if="${param.error}">
-            <p style="color: red;">로그인 실패: <span th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span></p>
-        </div>
-        <div class="textForm_1">
-            <input name="username" type="text" class="id" placeholder="아이디">
-        </div>
-        <div class="textForm_2">
-            <input name="password" type="password" class="pw" placeholder="비밀번호">
-        </div>
-        <input type="submit" class="btn_register" value="L O G I N"/>
-        <!--<div class = "login_btn" style="color:yellow;"><input type="submit" value="kakao In"/></div>-->
-        <br>
-        <div class="checkbox-wrapper-47">
-            <input type="checkbox" name="remember-me" id="rememberMe">
-            <label for="rememberMe"> 자동로그인 </label>
-        </div>
-    </form>
+        <form class = "login_form" action="/login/login" method="POST">
+            <h2>로그인</h2>
+            <div th:if="${param.error}">
+                <p style="color: red;">로그인 실패: <span th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span></p>
+            </div>
+            <div class="textForm_1">
+                <input name="username" type="text" class="id" placeholder="아이디">
+            </div>
+            <div class="textForm_2">
+                <input name="password" type="password" class="pw" placeholder="비밀번호">
+            </div>
+            <input type="submit" class="btn_register" value="L O G I N"/>
+            <!--<div class = "login_btn" style="color:yellow;"><input type="submit" value="kakao In"/></div>-->
+            <br>
+            <div class="checkbox-wrapper-47">
+                <input type="checkbox" name="remember-me" id="rememberMe">
+                <label for="rememberMe"> 자동로그인 </label>
+            </div>
+        </form>
+    </div>
+    <section class="container"></section>
+    <footer>
+        <div class ="footer-container"> </div>
+    </footer>
 </div>
-<section class="container"></section>
-<footer>
-    <div class ="footer-container"> </div>
-</footer>
+
+<div id="slideMenu">
+    <div>안녕</div>
+
+</div>
 </body>
 </html>

@@ -14,85 +14,102 @@
     <link rel="icon" href="/img/home.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/board/notice.js"></script>
     <script src="/js/login/register.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <title>회원가입</title>
 </head>
 <body>
-<header>
-    <div class ="header_container"></div>
-</header>
+<div class="overlay">
+    <header>
+        <div class ="header_container"></div>
+    </header>
 
-<div class="swiper-slide">
-    <div class="main_img">
-        <img src="../img/1.jpg" alt="">
-        <P class="first-line"> ㅡ </P>
-        <P class="second-line">회원가입</P>
+    <div class="swiper-slide">
+        <div class="main_img">
+            <img src="../img/1.jpg" alt="">
+            <P class="first-line"> ㅡ </P>
+            <P class="second-line">회원가입</P>
+        </div>
     </div>
-</div>
 
-<div class="location-wrap">
-    <div class="location-inner">
-        <div class="location-drop-wrap">
-            <div class = "location-drop-wrap-twin">
-                <a href="/main" class="home_btn"></a>
-                <div class="location-drop">
-                    <a id="oneDepsTitle">로그인</a>
-                    <div class="location-drop-bx">
-                        <ul class="location-2depth-list">
-                            <li><a href="/static" class="oneDepsTitle">메인</a></li>
-                            <li><a href="/static" class="oneDepsTitle">메인</a></li>
-                            <li><a href="/static" class="oneDepsTitle">메인</a></li>
-                        </ul>
-                        <a href="/main" class ="home_pic"></a>
+    <div class="location-wrap">
+        <div class="location-inner">
+            <div class="location-drop-wrap">
+                <div class = "location-drop-wrap-twin">
+                    <a href="/information/location" class="home_btn"></a>
+                    <div class="location-drop">
+                        <a id="oneDepsTitle">회원가입</a>
+                        <a href="#" class="dtnBtn">
+                            <span class="material-symbols-outlined">
+                                arrow_drop_down
+                            </span>
+                        </a>
+                        <a href="#" class="dtnBtn_2">
+                            <span class="material-symbols-outlined">
+                                arrow_drop_up
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hideDepsParent">
+                    <div class="hideDepsTitle">
+                        <a href="/login/register" id="threeDepsTitle">회원가입</a>
+                    </div>
+                    <div class="hideDepsTitle">
+                        <a href="/login/login" id="twoDepsTitle">로그인</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div>
-        <form class="joinForm" action="/user/login/register" method="POST">
-            <h2>회원가입</h2>
-            <div class="textForm_1">
-                <input name="MEMBER_LOGIN_ID" type="text" class="id" placeholder="아이디">
-                </input>
-            </div>
-            <div class="textForm_2">
-                <input name="MEMBER_PASSWORD" type="password" class="pw" placeholder="비밀번호">
-            </div>
-            <div class="textForm_3">
-                <input name="MEMBER_PASSWORD_VALIDATION" type="password" class="pw_val" placeholder="비밀번호 확인">
-            </div>
-            <div class="textForm_4">
-                <input name="MEMBER_NAME" type="text" class="name" placeholder="이름">
-            </div>
-            <div class="textForm_5">
-                <input name="MEMBER_EMAIL" type="text" class="email" placeholder="이메일 / ex)abc@naver.com">
-            </div>
-            <div class="textForm_6">
-                <input name="MEMBER_ADDRESS_CODE" id="sample6_postcode" class="address" placeholder="우편번호" readonly>
-            </div>
-            <div class="textForm_6">
-                <input name="MEMBER_ADDRESS" type="text" id="sample6_address" class="address" placeholder="주소" readonly><br>
-            </div>
-            <div class="textForm_6">
-                <input name="MEMBER_ADDRESS_DETAIL" type="text" id="sample6_detailAddress" class="address" placeholder="상세주소">
-            </div>
-            <div class="textForm_6">
-                <input name="MEMBER_ADDRESS_DETAIL_VAL" type="text" id="sample6_extraAddress" class="address" placeholder="참고항목" readonly>
-            </div>
-            <div>
-                <input type="button" onclick="sample6_execDaumPostcode()" class="btn_register" value="우편번호 찾기"><br>
-            </div>
-            <input type="submit" class="btn_register" value="J O I N"/>
-        </form>
+        <div>
+            <form class="joinForm" action="/user/login/register" method="POST">
+                <h2>회원가입</h2>
+                <div class="textForm_1">
+                    <input name="MEMBER_LOGIN_ID" type="text" class="id" placeholder="아이디">
+                    </input>
+                </div>
+                <div class="textForm_2">
+                    <input name="MEMBER_PASSWORD" type="password" class="pw" placeholder="비밀번호">
+                </div>
+                <div class="textForm_3">
+                    <input name="MEMBER_PASSWORD_VALIDATION" type="password" class="pw_val" placeholder="비밀번호 확인">
+                </div>
+                <div class="textForm_4">
+                    <input name="MEMBER_NAME" type="text" class="name" placeholder="이름">
+                </div>
+                <div class="textForm_5">
+                    <input name="MEMBER_EMAIL" type="text" class="email" placeholder="이메일 / ex)abc@naver.com">
+                </div>
+                <div class="textForm_6">
+                    <input name="MEMBER_ADDRESS_CODE" id="sample6_postcode" class="address" placeholder="우편번호" readonly>
+                </div>
+                <div class="textForm_6">
+                    <input name="MEMBER_ADDRESS" type="text" id="sample6_address" class="address" placeholder="주소" readonly><br>
+                </div>
+                <div class="textForm_6">
+                    <input name="MEMBER_ADDRESS_DETAIL" type="text" id="sample6_detailAddress" class="address" placeholder="상세주소">
+                </div>
+                <div class="textForm_6">
+                    <input name="MEMBER_ADDRESS_DETAIL_VAL" type="text" id="sample6_extraAddress" class="address" placeholder="참고항목" readonly>
+                </div>
+                <div>
+                    <input type="button" onclick="sample6_execDaumPostcode()" class="btn_register" value="우편번호 찾기"><br>
+                </div>
+                <input type="submit" class="btn_register" value="J O I N"/>
+            </form>
+        </div>
     </div>
+    <section class="container"></section>
+    <footer>
+        <div class ="footer-container"> </div>
+    </footer>
 </div>
-<section class="container"></section>
-<footer>
-    <div class ="footer-container"> </div>
-</footer>
 
+<div id="slideMenu">
+    <div>안녕</div>
+
+</div>
 </body>
 </html>
