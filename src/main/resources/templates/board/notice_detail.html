@@ -19,68 +19,73 @@
 </head>
 
 <body>
-<header>
-    <div class="header_container"></div>
-</header>
+<div class="overlay">
+    <header>
+        <div class="header_container"></div>
+    </header>
 
-<div class="post-container">
-    <div class="post-userid">
-        <h1 class="post-title">작성자</h1>
-        <p class ="post-userid-text"></p>
-    </div>
-    <div class="post-header">
-        <h1 class="post-title">제목</h1>
-        <p class ="post-title-text"></p>
-    </div>
-    <div class="post-content">
-        <p class="post-text">내용</p>
-        <p class="post-context-text"></p>
-        <div class="post-file">
-            <p class="file-link">첨부 파일</p>
-            <a href="#" class ="file-title-text"></a>
+    <div class="post-container">
+        <div class="post-userid">
+            <h1 class="post-title">작성자</h1>
+            <p class ="post-userid-text"></p>
+        </div>
+        <div class="post-header">
+            <h1 class="post-title">제목</h1>
+            <p class ="post-title-text"></p>
+        </div>
+        <div class="post-content">
+            <p class="post-text">내용</p>
+            <p class="post-context-text"></p>
+            <div class="post-file">
+                <p class="file-link">첨부 파일</p>
+                <a href="#" class ="file-title-text"></a>
+            </div>
+        </div>
+        <div class="post-comments">
+            <h2 class="comments-title">댓글</h2>
+            <ul class="comments-list">
+                <li class="comment">
+                    <div class="comment-content">
+                        <p class="comment-text"></p>
+                    </div>
+                    <div class="comment-meta">
+                        <div class="comment-author">댓글 작성자</div>
+                        <div class="comment-date">댓글 작성일</div>
+                        <div class="comment-con">댓글 내용</div>
+                    </div>
+                    <div class="comment-meta-List">
+                        <div class ="commont-author-list"></div>
+                        <div class ="comment-date-list"></div>
+                        <div class ="comment-con-list"></div>
+
+                    </div>
+                </li>
+            </ul>
+            <form class="comment-form" action="/board/notice/listAnswerWrite" method="GET" enctype="multipart/form-data">
+                <input type="hidden" name="num" value="">
+                <div class="form-group">
+                    <label for="user_id">작성자</label>
+                    <input type="text" id="user_id" name="user_id">
+                    <p style="font-size: small; color: #999;">* 작성자는 5글자 이내로 입력이 가능합니다.</p>
+                </div>
+                <div class="form-group">
+                    <label for="context">내용</label>
+                    <textarea id="context" name="context" rows="3"></textarea>
+                    <p style="font-size: small; color: #999;">* 내용은 30글자 이내로 입력이 가능합니다.</p>
+                </div>
+                <button type="submit" class="btn btn-dark">등록</button>
+                <a href="notice.html">목록</a>
+            </form>
         </div>
     </div>
-    <div class="post-comments">
-        <h2 class="comments-title">댓글</h2>
-        <ul class="comments-list">
-            <li class="comment">
-                <div class="comment-content">
-                    <p class="comment-text"></p>
-                </div>
-                <div class="comment-meta">
-                    <div class="comment-author">댓글 작성자</div>
-                    <div class="comment-date">댓글 작성일</div>
-                    <div class="comment-con">댓글 내용</div>
-                </div>
-                <div class="comment-meta-List">
-                    <div class ="commont-author-list"></div>
-                    <div class ="comment-date-list"></div>
-                    <div class ="comment-con-list"></div>
 
-                </div>
-            </li>
-        </ul>
-        <form class="comment-form" action="/board/notice/listAnswerWrite" method="GET" enctype="multipart/form-data">
-            <input type="hidden" name="num" value="">
-            <div class="form-group">
-                <label for="user_id">작성자</label>
-                <input type="text" id="user_id" name="user_id">
-                <p style="font-size: small; color: #999;">* 작성자는 5글자 이내로 입력이 가능합니다.</p>
-            </div>
-            <div class="form-group">
-                <label for="context">내용</label>
-                <textarea id="context" name="context" rows="3"></textarea>
-                <p style="font-size: small; color: #999;">* 내용은 30글자 이내로 입력이 가능합니다.</p>
-            </div>
-            <button type="submit" class="btn btn-dark">등록</button>
-            <a href="notice.html">목록</a>
-        </form>
-    </div>
+    <footer>
+        <div class="footer-container"> </div>
+    </footer>
 </div>
+<div id="slideMenu">
 
-<footer>
-    <div class="footer-container"> </div>
-</footer>
+</div>
 </body>
 
 </html>

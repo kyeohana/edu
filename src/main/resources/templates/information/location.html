@@ -23,56 +23,61 @@
     <title>위치</title>
 </head>
 <body>
-<header>
-  <div class ="header_container"></div>
-</header>
+<div class="overlay">
+    <header>
+      <div class ="header_container"></div>
+    </header>
 
-<div class="swiper-slide">
-  <div class="main_img">
-    <img src="../img/1.jpg" alt="">
-    <P class="first-line"> ㅡ </P>
-    <P class="second-line">위치</P>
-  </div>
-</div>
+    <div class="swiper-slide">
+      <div class="main_img">
+        <img src="../img/1.jpg" alt="">
+        <P class="first-line"> ㅡ </P>
+        <P class="second-line">위치</P>
+      </div>
+    </div>
 
-<div class="location-wrap">
-    <div class="location-inner">
-        <div class="location-drop-wrap">
-            <div class = "location-drop-wrap-twin">
-                <a href="/information/location" class="home_btn"></a>
-                <div class="location-drop">
-                    <a id="oneDepsTitle">위치</a>
-                    <a href="#" class="dtnBtn">
-                        <span class="material-symbols-outlined">
-                            arrow_drop_down
-                        </span>
-                    </a>
-                    <a href="#" class="dtnBtn_2">
-                        <span class="material-symbols-outlined">
-                            arrow_drop_up
-                        </span>
-                    </a>
+    <div class="location-wrap">
+        <div class="location-inner">
+            <div class="location-drop-wrap">
+                <div class = "location-drop-wrap-twin">
+                    <a href="/information/location" class="home_btn"></a>
+                    <div class="location-drop">
+                        <a id="oneDepsTitle">위치</a>
+                        <a href="#" class="dtnBtn">
+                            <span class="material-symbols-outlined">
+                                arrow_drop_down
+                            </span>
+                        </a>
+                        <a href="#" class="dtnBtn_2">
+                            <span class="material-symbols-outlined">
+                                arrow_drop_up
+                            </span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="hideDepsParent">
-                <div class="hideDepsTitle">
-                    <a href="/information/location" id="twoDepsTitle">위치</a>
-                </div>
-                <div class="hideDepsTitle">
-                    <a href="/information/play" id="threeDepsTitle">축제</a>
+                <div class="hideDepsParent">
+                    <div class="hideDepsTitle">
+                        <a href="/information/location" id="twoDepsTitle">위치</a>
+                    </div>
+                    <div class="hideDepsTitle">
+                        <a href="/information/play" id="threeDepsTitle">축제</a>
+                    </div>
                 </div>
             </div>
         </div>
+    <div class ="end_date" style="margin-left:45%; margin-top:2%;">
+        <input type="text" id="endDate" name="endDate" class="selector" placeholder="YYYYMMDD">
+        마지막 날 체크
+        <button class = "endDate_click" onclick="click_enddate()">클릭 </button>
     </div>
-<div class ="end_date" style="margin-left:45%; margin-top:2%;">
-    <input type="text" id="endDate" name="endDate" class="selector" placeholder="YYYYMMDD">
-    마지막 날 체크
-    <button class = "endDate_click" onclick="click_enddate()">클릭 </button>
+    <section class="container"></section>
+    <footer>
+      <div class ="footer-container"> </div>
+    </footer>
 </div>
-<section class="container"></section>
-<footer>
-  <div class ="footer-container"> </div>
-</footer>
+</div>
+<div id="slideMenu">
 
+</div>
 </body>
 </html>

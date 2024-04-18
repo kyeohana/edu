@@ -169,7 +169,6 @@ header {
     background-color: white;
     transition: right 0.5s ease;
     z-index: 2000;
-    padding: 20px;
     filter: drop-shadow(2px 4px 6px black);
 }
 
@@ -184,4 +183,30 @@ header {
 
 #slideMenu.white {
     opacity: 1;
+}
+
+
+.slideMenu_Fst_None {
+    display: none;
+}
+
+.slideMenu_Snd_None {
+    display: none;
+}
+
+.slideMenuSt {
+    display: flex;
+    padding: 17px 20px;
+    font-size: large;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.slideDtnBtn_2 {
+    display: none;
+}
+
+.slideMenuBox {
+    padding-top: 70px;
 }

@@ -49,6 +49,55 @@ $("document").ready(function () {
 
     $(".popularityClose").hide();
 
+    var slideMenu = $("#slideMenu");
+
+    var slideMenuHtml=
+        '<div class="slideMenuBox">' +
+            '<a href="#" class="slideMenuSt">메뉴' +
+                '<div class="slideDtnBtn">' +
+                    '<span class="material-symbols-outlined">' +
+                    'keyboard_arrow_down' +
+                    '</span>' +
+                '</div>' +
+                '<div class="slideDtnBtn_2">' +
+                    '<span class="material-symbols-outlined">' +
+                    'keyboard_arrow_up' +
+                    '</span>' +
+                '</div>' +
+                '</a>' +
+                    '<div class="slideMenu_Fst_None">메인</div>' +
+                    '<div class="slideMenu_Fst_None">자유게시판</div>' +
+                '<a href="#" class="slideMenuSt">정보' +
+                '<div class="slideDtnBtn">' +
+                    '<span class="material-symbols-outlined">' +
+                    'keyboard_arrow_down' +
+                    '</span>' +
+                '</div>' +
+                '<div class="slideDtnBtn_2">' +
+                    '<span class="material-symbols-outlined">' +
+                    'keyboard_arrow_up' +
+                    '</span>' +
+                '</div>' +
+
+                '</a>' +
+                    '<div class="slideMenu_Snd_None">메인</div>' +
+                    '<div class="slideMenu_Snd_None">자유게시판</div>' +
+                '<a href="#" class="slideMenuSt">미등록' +
+                '<div class="slideDtnBtn">' +
+                    '<span class="material-symbols-outlined">' +
+                    'keyboard_arrow_down' +
+                    '</span>' +
+                '</div>' +
+                '<div class="slideDtnBtn_2">' +
+                    '<span class="material-symbols-outlined">' +
+                    'keyboard_arrow_up' +
+                    '</span>' +
+                '</div>' +
+            '</a>' +
+        '</div>'
+
+    slideMenu.html(slideMenuHtml);
+
 });
 
 
@@ -58,18 +107,18 @@ function popularity_button() {
 
     $.ajax({
         url: "/location/populartiy",
-        type : "GET",
+        type: "GET",
         dataType: "JSON",
-        success: function(response){
+        success: function (response) {
             console.log(response);
             var data = response.data;
             var popularityContent = "";
             for (var i = 0; i < Object.keys(data).length; i++) {
                 var keywordService = data[i].keyword_service.replace(/<br\s*\/?>/gi, '');
-                popularityContent += '<div>' + (i + 1)+ '.' +  keywordService + '</div>';
+                popularityContent += '<div>' + (i + 1) + '.' + keywordService + '</div>';
             }
 
-            var popularityUptDtn = '<div>'+ response.update_dtm +'</div>'
+            var popularityUptDtn = '<div>' + response.update_dtm + '</div>'
 
             $(".popularity").show()
             $(".popularity").addClass("show");
@@ -85,5 +134,6 @@ function popularity_button() {
         }
 
     });
+
 
 }
