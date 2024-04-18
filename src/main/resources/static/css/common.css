@@ -186,11 +186,11 @@ header {
 }
 
 
-.slideMenu_Fst_None {
+.slideMenu_Fst_None.hide {
     display: none;
 }
 
-.slideMenu_Snd_None {
+.slideMenu_Snd_None.hide {
     display: none;
 }
 
@@ -203,10 +203,19 @@ header {
     justify-content: space-between;
 }
 
-.slideDtnBtn_2 {
-    display: none;
-}
-
 .slideMenuBox {
     padding-top: 70px;
+}
+
+.slideMenuBox.active {
+    padding-top: 70px;
+}
+
+.slideMenuSub{
+    display: flex;
+    padding: 14px 20px;
+    font-size: medium;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F3FCFAFF;
 }
