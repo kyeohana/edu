@@ -181,11 +181,6 @@ header {
     transition: filter 0.3s ease-in-out;
 }
 
-#slideMenu.white {
-    opacity: 1;
-}
-
-
 .slideMenu_Fst_None.hide {
     display: none;
 }

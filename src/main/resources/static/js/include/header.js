@@ -14,7 +14,6 @@ $(document).ready(function () {
             var isVisible = slideMenu.css('right') == '0px';
             var newRight = isVisible ? '-36.3%' : '0px';
             slideMenu.animate({ right: newRight }, 100);
-            slideMenu.addClass("white");
         }, 200);
 
     });
