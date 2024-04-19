@@ -1,5 +1,6 @@
 $("document").ready(function () {
     var sections = $("section > ul > li");
+    var body = $(".overlay");
 
     $(".header_container").load("/include/header");
     $(".footer-container").load("/include/footer");
@@ -52,6 +53,13 @@ $("document").ready(function () {
     var slideMenu = $("#slideMenu");
 
     var slideMenuHtml=
+        '<div class="slideMenuClose">' +
+        '<a href="#" class="slideMenuCloseBtn">' +
+        '<span class="material-symbols-outlined">\n' +
+        'close\n' +
+        '</span>' +
+        '</a>' +
+        '</div>' +
         '<div class="slideMenuBox">' +
             '<a href="#" class="slideMenuSt" id="slideMenuSt_1">메뉴' +
                 '<div class="slideDtnBtn_Menu">' +
@@ -65,8 +73,8 @@ $("document").ready(function () {
                     '</span>' +
                 '</div>' +
             '</a>' +
-                '<div class="slideMenuSub" id="slideMenu_Fst_None">메인</div>' +
-                '<div class="slideMenuSub" id="slideMenu_Fst_None">자유게시판</div>' +
+                '<a href="/main" class="slideMenuSub" id="slideMenu_Fst_None">메인</a>' +
+                '<a href="/board/notice" class="slideMenuSub" id="slideMenu_Fst_None">자유게시판</a>' +
             '<a href="#"  class="slideMenuSt" id="slideMenuSt_2">정보' +
                 '<div class="slideDtnBtn_Sub">' +
                     '<span class="material-symbols-outlined">' +
@@ -79,8 +87,8 @@ $("document").ready(function () {
                     '</span>' +
                 '</div>' +
             '</a>' +
-                '<div class="slideMenuSub" id="slideMenu_Snd_None">위치</div>' +
-                '<div class="slideMenuSub" id="slideMenu_Snd_None">축제</div>' +
+                '<a href="/information/location" class="slideMenuSub" id="slideMenu_Snd_None">위치</a>' +
+                '<a href="/information/play" class="slideMenuSub" id="slideMenu_Snd_None">축제</a>' +
             '<a href="#"  class="slideMenuSt" id="slideMenuSt_3">미등록' +
                 '<div class="slideDtnBtn_trd">' +
                     '<span class="material-symbols-outlined">' +
@@ -93,8 +101,8 @@ $("document").ready(function () {
                     '</span>' +
                 '</div>' +
         '</a>' +
-                '<div class="slideMenuSub" id="slideMenu_Trd_None">미등록</div>' +
-                '<div class="slideMenuSub" id="slideMenu_Trd_None">미등록</div>' +
+                '<a href="#" class="slideMenuSub" id="slideMenu_Trd_None">미등록</a>' +
+                '<a href="#" class="slideMenuSub" id="slideMenu_Trd_None">미등록</a>' +
         '</div>'
 
     slideMenu.html(slideMenuHtml);
@@ -154,6 +162,12 @@ $("document").ready(function () {
 
             slideMenuSt_3 = true;
         }});
+
+
+    $(".slideMenuCloseBtn").click(function (event) {
+            slideMenu.animate({right: '-36.3%'}, 100);
+            body.removeClass("overlayer");
+    });
 
 });
 

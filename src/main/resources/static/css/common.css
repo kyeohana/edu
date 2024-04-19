@@ -204,11 +204,7 @@ header {
 }
 
 .slideMenuBox {
-    padding-top: 70px;
-}
-
-.slideMenuBox.active {
-    padding-top: 70px;
+    padding-top: 10px;
 }
 
 .slideMenuSub{
@@ -217,5 +213,18 @@ header {
     font-size: medium;
     align-items: center;
     justify-content: space-between;
-    background-color: #F3FCFAFF;
+    background-color: #F7FAFDFF;
+}
+
+.slideMenuClose {
+    text-align: right;
+    padding: 25px;
+}
+
+.slideMenuSt:hover{
+    color:blue;
+}
+
+.slideMenuSub:hover{
+    color:blue;
 }
