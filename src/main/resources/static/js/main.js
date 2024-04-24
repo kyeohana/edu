@@ -184,8 +184,9 @@ function popularity_button() {
             var data = response.data;
             var popularityContent = "";
             for (var i = 0; i < Object.keys(data).length; i++) {
-                var keywordService = data[i].keyword_service.replace(/<br\s*\/?>/gi, '');
-                popularityContent += '<div>' + (i + 1) + '.' + keywordService + '</div>';
+                var keywordService2 = data[i].keyword_service.replace(/<br\s*\/?>/gi, '');
+                var keywordService = keywordService2.replace("\"", '\'');
+                popularityContent += '<div><a href="https://www.google.com/search?q='+keywordService+'" >' + (i + 1) + '.' + keywordService + '</a></div>';
             }
 
             var popularityUptDtn = '<div>' + response.update_dtm + '</div>'
