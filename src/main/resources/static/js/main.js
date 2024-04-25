@@ -105,7 +105,9 @@ $("document").ready(function () {
                 '<a href="#" class="slideMenuSub" id="slideMenu_Trd_None">미등록</a>' +
         '</div>'
 
-    slideMenu.html(slideMenuHtml);
+    if (slideMenu.children().length === 0) {
+        slideMenu.append(slideMenuHtml);
+    }
 
     var slideMenuSt_1 = true
     var slideMenuSt_2 = true
@@ -116,6 +118,7 @@ $("document").ready(function () {
 
 
     $("#slideMenuSt_1").click(function (event) {
+        event.preventDefault()
         if(slideMenuSt_1) {
             $(".slideDtnBtn_Menu").hide();
             $(".slideDtnBtn_Sub, .slideDtnBtn_trd, .slideDtnBtn_Menu_2, #slideMenu_Fst_None").show();
@@ -132,6 +135,7 @@ $("document").ready(function () {
     }});
 
     $("#slideMenuSt_2").click(function (event) {
+        event.preventDefault()
         if(slideMenuSt_2) {
             $(".slideDtnBtn_Sub").hide();
             $(".slideDtnBtn_Menu, .slideDtnBtn_trd,.slideDtnBtn_Sub_2, #slideMenu_Snd_None").show();
@@ -148,6 +152,7 @@ $("document").ready(function () {
         }});
 
     $("#slideMenuSt_3").click(function (event) {
+        event.preventDefault()
         if(slideMenuSt_3) {
             $(".slideDtnBtn_trd").hide();
             $(".slideDtnBtn_Menu, .slideDtnBtn_Sub, .slideDtnBtn_trd_2, #slideMenu_Trd_None").show();
@@ -165,6 +170,7 @@ $("document").ready(function () {
 
 
     $(".slideMenuCloseBtn").click(function (event) {
+            event.preventDefault()
             slideMenu.animate({right: '-36.3%'}, 100);
             body.removeClass("overlayer");
     });
@@ -186,7 +192,7 @@ function popularity_button() {
             for (var i = 0; i < Object.keys(data).length; i++) {
                 var keywordService2 = data[i].keyword_service.replace(/<br\s*\/?>/gi, '');
                 var keywordService = keywordService2.replace("\"", '\'');
-                popularityContent += '<div><a href="https://www.google.com/search?q='+keywordService+'" >' + (i + 1) + '.' + keywordService + '</a></div>';
+                popularityContent += '<div><a href="https://www.google.com/search?q='+keywordService+'" target="_blank" >' + (i + 1) + '.' + keywordService + '</a></div>';
             }
 
             var popularityUptDtn = '<div>' + response.update_dtm + '</div>'

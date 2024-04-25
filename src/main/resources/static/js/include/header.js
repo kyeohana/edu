@@ -3,9 +3,10 @@ $(document).ready(function () {
     var body = $(".overlay");
     var header = $("header");
     var headerList = $(".banner2");
+    var menuButton = $(".menuButton");
 
 
-    $('.menuButton').click(function(event) {
+    menuButton.click(function(event) {
         event.preventDefault();
         event.stopPropagation();
         body.addClass("overlayer");
