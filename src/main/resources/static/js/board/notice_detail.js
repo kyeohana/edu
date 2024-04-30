@@ -23,9 +23,11 @@ $("document").ready(function () {
                         '<p>' + datafull[0].title + '</p>';
                     var content_context =
                         '<p>' + datafull[0].context + '</p>';
-                    if (file_link && file_link.length > 0 ) {
-                        var file_link =
-                            '<a>' + dafafull[0].file + '</a>';
+                    if (datafull[0].file && datafull[0].file.length > 0) {
+                        var file_link = '<a href="\/file/\ ' +
+                             + datafull[0].file + '" download="' + datafull[0].file + '">' + datafull[0].file + '</a>';
+
+
                     }
 
                     useriddata.append(userid_context)

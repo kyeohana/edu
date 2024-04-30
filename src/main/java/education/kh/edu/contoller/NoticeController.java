@@ -54,34 +54,31 @@ public class NoticeController {
         String loginId = authentication.getName();
         vo.setUser_id(loginId);
 
-        if (request instanceof MultipartHttpServletRequest) {
-            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-            MultipartFile file = multipartRequest.getFile("file");
-            if (file != null && !file.isEmpty()) {
-                String fileName = file.getOriginalFilename();
-                File dir = new File(uploadDir);
-                if (!dir.exists()) {
-                    dir.mkdirs();
-                }
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
-                String randomString = sdf.format(new Date());
-                String fileNameWithoutExtension = fileName;
-                String extension = "";
-                int index = fileName.lastIndexOf('.');
-                if (index > 0 ){
-                    extension = fileName.substring(index);
-                    fileNameWithoutExtension = fileName.substring(0,index);
-                }
-
-                File uploadFile = new File(uploadDir + File.separator + fileNameWithoutExtension + randomString  + extension);
-                file.transferTo(uploadFile);
-
-                vo.setFilePath(fileNameWithoutExtension + randomString  + extension);
-                vo.setFile_cra_date(new Date());
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        MultipartFile file = multipartRequest.getFile("file");
+        if (file != null && !file.isEmpty()) {
+            String fileName = file.getOriginalFilename();
+            File dir = new File(uploadDir);
+            if (!dir.exists()) {
+                dir.mkdirs();
             }
-        } else {
-            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to increase view count.");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+            String randomString = sdf.format(new Date());
+            String fileNameWithoutExtension = fileName;
+            String extension = "";
+            int index = fileName.lastIndexOf('.');
+            if (index > 0 ){
+                extension = fileName.substring(index);
+                fileNameWithoutExtension = fileName.substring(0,index);
+            }
+
+            File uploadFile = new File(uploadDir + File.separator + fileNameWithoutExtension + randomString  + extension);
+            file.transferTo(uploadFile);
+
+            vo.setFilePath(fileNameWithoutExtension + randomString  + extension);
+            vo.setFile_cra_date(new Date());
         }
+
 
         noticeService.boardWrite(vo);
 

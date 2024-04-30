@@ -19,7 +19,8 @@ public class NoticeDto {
     private String password;
     private String filePath;
     private Date file_cra_date;
-    private MultipartFile file;
+    private String file;
+    private String originalFileName;
 
     private int num_notice;
     private int answer_Cnt;
