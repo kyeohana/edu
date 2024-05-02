@@ -21,7 +21,7 @@ public class MemberPrincipalDetailService implements UserDetailsService {
         System.out.println("username : " + username);
         System.out.println("member : " + member);
         if(member == null)
-            throw new UsernameNotFoundException(username + "을 찾을 수 없습니다.");
+            throw new UsernameNotFoundException(username + "을 찾을 수 없습니당.");
 
         if(!"Y".equals(member.getIsUsed()))
             throw new UsernameNotFoundException("사용할 수 없는 계정입니다.");
