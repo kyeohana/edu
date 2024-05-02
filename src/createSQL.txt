@@ -1,3 +1,9 @@
+https://unpkg.com/browse/swiper@8.4.7/
+swiper bundle.js, css download
+https://sourceforge.net/projects/sweetalert2.mirror/files/v11.10.8/
+sweetalert2 js,css download
+
+
 -- edu.edu_notice definition
 
 GRANT SELECT ON edu.edu_notice TO 'root'@'localhost';

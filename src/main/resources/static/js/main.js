@@ -15,28 +15,12 @@ $("document").ready(function () {
             disableOnInteraction : false, 
         },
         speed:2000,
-        loop: true,
+        loop: false,
         loopAdditionalSlides: 1,
     });
 
 
 
-    function checkScroll() {
-        var windowHeight = $(window).height();
-        var scrollPostion = $(window).scrollTop();
-
-        sections.each(function() {
-            var offset = $(this).offset().top;
-            
-            if (scrollPostion + windowHeight >= offset) {
-                $(this).addClass("active");
-            }
-        });
-    };
-
-    $(window).scroll(function () {
-        checkScroll();
-    });
 
     $(".popularityClose").click(function (event) {
         event.preventDefault()

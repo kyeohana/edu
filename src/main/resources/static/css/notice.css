@@ -2,7 +2,7 @@
     text-align: center;
     font-size: 18px;
     background: #fff;
-    display: flex;
+    /*display: flex;*/
 }
 
 .main_img img {
@@ -20,7 +20,7 @@
 .swiper-slide p.first-line {
     position: absolute;
     z-index: 2;
-    top: 116%;
+    top: 111%;
     left: 50%;
     transform: translate(-50%, -150px);
     color: white;
