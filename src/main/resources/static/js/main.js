@@ -86,7 +86,7 @@ $("document").ready(function () {
                     '</span>' +
                 '</div>' +
             '</a>' +
-                '<a href="/information/location" class="slideMenuSub" id="slideMenu_Snd_None">위치</a>' +
+                '<a href="/information/location" class="slideMenuSub" id="slideMenu_Snd_None">달력</a>' +
                 '<a href="/information/play" class="slideMenuSub" id="slideMenu_Snd_None">축제</a>' +
             '<a href="#"  class="slideMenuSt" id="slideMenuSt_3">미등록' +
                 '<div class="slideDtnBtn_trd">' +
