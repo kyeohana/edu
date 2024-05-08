@@ -38,12 +38,12 @@ public class CommonController {
 
     @GetMapping("/information/location")
     public String locationHtml() {
-        return "/information/location";
+        return "information/location";
     }
 
     @GetMapping("/information/play")
     public String playHtml() {
-        return "/information/play";
+        return "information/play";
     }
 
 }
