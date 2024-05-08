@@ -46,4 +46,9 @@ public class CommonController {
         return "information/play";
     }
 
+    @GetMapping("/api/camp")
+    public String campHtml() {
+        return "api/camp";
+    }
+
 }

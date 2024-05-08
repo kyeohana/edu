@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/camp.css">
+    <link rel="stylesheet" href="/css/location.css">
+    <script src="/js/jquery.js"></script>
+    <link rel="stylesheet" href="/css/swiper.css" />
+    <script src="/js/swiper.js"></script>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="/img/home.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/sweetalert2.css" />
+    <script src="/js/sweetalert2.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/board/notice.js"></script>
+
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script>
+
+    <title>위치</title>
+</head>
+<body>
+<div class="overlay">
+    <header>
+        <div class ="header_container"></div>
+    </header>
+
+    <div class="swiper-slide">
+        <div class="main_img">
+            <img src="../img/1.jpg" alt="">
+            <P class="first-line"> ㅡ </P>
+            <P class="second-line">캠핑장</P>
+        </div>
+    </div>
+
+    <div class="location-wrap">
+        <div class="location-inner">
+            <div class="location-drop-wrap">
+                <div class = "location-drop-wrap-twin">
+                    <a href="/api/camp" class="home_btn"></a>
+                    <div class="location-drop">
+                        <a id="oneDepsTitle">캠핑장</a>
+                        <a href="#" class="dtnBtn">
+                            <span class="material-symbols-outlined">
+                                arrow_drop_down
+                            </span>
+                        </a>
+                        <a href="#" class="dtnBtn_2">
+                            <span class="material-symbols-outlined">
+                                arrow_drop_up
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hideDepsParent">
+                    <div class="hideDepsTitle">
+                        <a href="/information/location" id="twoDepsTitle">위치</a>
+                    </div>
+                    <div class="hideDepsTitle">
+                        <a href="/information/play" id="threeDepsTitle">축제</a>
+                    </div>
+                    <div class="hideDepsTitle">
+                        <a href="/api/camp" id="fourDepsTitle">캠핑장</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class ="end_date" style="margin-left:45%; margin-top:2%;">
+        </div>
+        <section class="container"></section>
+        <div id="map" style="width:100%;height:400px;"></div>
+        <footer>
+            <div class ="footer-container"> </div>
+        </footer>
+    </div>
+</div>
+<div id="slideMenu">
+
+</div>
+</body>
+</html>
