@@ -448,6 +448,7 @@ table {
     transform: translate(-50%,-50%);
     border-radius: 15px;
     padding-top: 1%;
+    z-index: -1;
 }
 
 .login_form {
@@ -631,4 +632,5 @@ table {
     margin-left: 56px;
     padding-top: 10px;
     background-color: white;
+    z-index : 1000;
 }
