@@ -36,6 +36,8 @@ public class MemberSecurityConfig {
                 authorize
                         .antMatchers("/css/**", "/img/**", "/js/**", "/member/login/**", "/member/attachment/**", "/member/files/**")
                         .permitAll() // 해당 경로는 인증 없이 접근 가능
+                        .antMatchers("/information/**")
+                        .permitAll()
                         .antMatchers("/board/**", "/login/mypage") // 해당 경로는 인증이 필요
                         .hasRole("MEMBER") // ROLE 이 MEMBER 가 포함된 경우에만 인증 가능
                     .and()
