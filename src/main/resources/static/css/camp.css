@@ -363,3 +363,12 @@ table {
     padding-top: 10px;
     background-color: white;
 }
+
+.mapCenter {
+    padding-left: 350px;
+    padding-top: 50px;
+}
+
+.mapSearchCenter{
+    text-align: center;
+}
