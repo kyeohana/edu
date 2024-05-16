@@ -6,11 +6,31 @@ $("document").ready(function () {
         var mapSearch = $(".mapSearch").val();
 
         $.ajax({
-            url : '/api/campSearch',
-            type : 'GET',
+            type : "GET",
+            url : "/api/campSearch",
             data : mapSearch,
             success : function (data) {
-                var data = data
+                var dataMap = data
+                console.log (dataMap)
+
+              /*  if(!dataMap && dataMap.length > 1 ) {
+                    for (var i=0; i > 0; i++) {
+                        var dataMapList = dataMap[i];
+
+                        var dataMapHtml =
+                            html += "<div>"
+                            html += "<p>"
+                            html += "</div>"
+
+                            $(".mapSearchCenterHtml").html(dataMapHtml)
+
+                    }
+                }*/
+
+
+
+            }, error() {
+                alert("에러발생")
             }
 
         })

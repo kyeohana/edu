@@ -34,8 +34,6 @@ public class CampController {
         String apiUrl = "https://openapi.gg.go.kr/CAMPGRD" +
                 "?Key=" + apiKey +
                 "&Type=json" +
-                "&pIndex=1" +
-                "&pSize+10" +
                 "&SIGUN_NM=" + mapSearch ;
 
         return restTemplate.getForObject(apiUrl,String.class);
