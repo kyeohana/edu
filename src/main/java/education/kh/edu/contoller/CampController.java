@@ -25,7 +25,7 @@ public class CampController {
 
 
     @GetMapping("/api/campSearch")
-    public String getMapSearch(@RequestParam String mapSearch) {
+    public String getMapSearch(@RequestParam(defaultValue="") String mapSearch) {
 
         //https://data.gg.go.kr/portal/data/service/selectServicePage.do?page=2&rows=10&sortColumn=VIEW_CNT&sortDirection=DESC&infId=6243I631A7C7L7M0JR1B21715119&infSeq=3&order=3&loc=
 
