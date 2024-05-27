@@ -1,5 +1,6 @@
 $("document").ready(function () {
 
+
     var mapContainer = document.getElementById('map'),
         mapOption = {
             center: new kakao.maps.LatLng(37.34936338, 126.7589429),
@@ -14,6 +15,16 @@ $("document").ready(function () {
         event.preventDefault()
 
         var mapSearch = $(".mapSearch").val();
+
+        if(!mapSearch) {
+            Swal.fire({
+                icon: 'error',
+                title: '검색어를 입력해주세요.',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return false;
+        }
 
         $.ajax({
             type: "GET",

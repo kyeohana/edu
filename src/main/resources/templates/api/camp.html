@@ -70,14 +70,15 @@
         </div>
         <div class ="end_date" style="margin-left:45%; margin-top:2%;">
         </div>
-        <section class="container"></section>
-
         <form class="campSearchSubmit" action="/api/campSearch" type="GET" >
             <div class="mapSearchCenter">
-                <input class="mapSearch" name="mapSearch"/>
-                <button type="submit">검색</button>
+                <input type="text" class="mapSearch" name="mapSearch"/>
+                <button type="submit" style="margin-left: 10px;">검색</button>
             </div>
+            <p style="text-align: center; padding-top: 10px;">1. 경기도 권역만 조회가 가능합니다.</p>
+            <p style="text-align: center; padding: 10px;">2. 00시 로 입력해야 됩니다.</p>
         </form>
+
         <div class ="mapSearchCenterHtml"></div>
         <div class="mapCenter">
             <div id="map"></div>
