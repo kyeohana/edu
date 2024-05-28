@@ -4,7 +4,7 @@ $("document").ready(function () {
     var mapContainer = document.getElementById('map'),
         mapOption = {
             center: new kakao.maps.LatLng(37.34936338, 126.7589429),
-            level: 3 // 지도의 확대 레벨
+            level: 3
         };
 
     var map = new kakao.maps.Map(mapContainer, mapOption);
@@ -32,11 +32,7 @@ $("document").ready(function () {
             data: {mapSearch: mapSearch},
             success: function (data) {
 
-                console.log(data);
-
                 var rows = JSON.parse(data);
-
-                console.log(rows);
 
                 var positions = [];
 
@@ -49,7 +45,6 @@ $("document").ready(function () {
 
                 var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
-                // 기존 마커 및 인포윈도우 제거
                 for (var i = 0; i < markers.length; i++) {
                     markers[i].setMap(null);
                 }
@@ -62,13 +57,10 @@ $("document").ready(function () {
 
                 for (var i = 0; i < positions.length; i++) {
 
-                    // 마커 이미지의 이미지 크기 입니다
                     var imageSize = new kakao.maps.Size(24, 35);
 
-                    // 마커 이미지를 생성합니다
                     var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
-                    // 마커를 생성합니다
                     var marker = new kakao.maps.Marker({
                         position: positions[i].latlng, // 마커를 표시할 위치
                         image: markerImage, // 마커 이미지
@@ -77,7 +69,6 @@ $("document").ready(function () {
 
                     markers.push(marker);
 
-                    // 인포윈도우 내용
                     var iwContent = `<a href="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${positions[i].title}" style="padding:5px;" target="_blank">${positions[i].title}</a>`,
                         iwRemoveable = true;
 
@@ -88,10 +79,8 @@ $("document").ready(function () {
 
                     infowindows.push(infowindow);
 
-                    // 클로저를 이용한 인포윈도우 생성 및 이벤트 바인딩
                     (function(marker, infowindow) {
                         kakao.maps.event.addListener(marker, 'click', function() {
-                            // 모든 인포윈도우 닫기
                             for (var j = 0; j < infowindows.length; j++) {
                                 infowindows[j].close();
                             }
@@ -100,7 +89,6 @@ $("document").ready(function () {
                     })(marker, infowindow);
                 }
 
-                // 새로운 마커 표시 및 지도 중심 이동
                 var bounds = new kakao.maps.LatLngBounds();
                 for (var i = 0; i < markers.length; i++) {
                     markers[i].setMap(map);
