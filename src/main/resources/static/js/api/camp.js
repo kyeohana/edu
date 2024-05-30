@@ -26,11 +26,15 @@ $("document").ready(function () {
             return false;
         }
 
+        $(".loading-overlay").show();
+
         $.ajax({
             type: "GET",
             url: "/api/campSearch",
             data: {mapSearch: mapSearch},
             success: function (data) {
+
+                $(".loading-overlay").hide();
 
                 var rows = JSON.parse(data);
 
