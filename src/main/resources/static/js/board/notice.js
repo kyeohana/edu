@@ -73,7 +73,6 @@ function getPage(pageNumber,search) {
             title_search : title_search
         },
         success: function(data) {
-            console.log(data);
 
             var notices = data;
             var tableBody = $('.board-table tbody');
