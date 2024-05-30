@@ -368,7 +368,6 @@ table {
 @media screen and (max-width: 800px) {
     .board-table th, .board-table td {
         padding: 10px 5px;
-        font-size: 12px;
     }
 
     #board-search .search-window .search-wrap {
@@ -402,7 +401,6 @@ table {
 @media screen and (max-width: 500px) {
     .board-table th, .board-table td {
         padding: 8px 4px;
-        font-size: 10px;
     }
 
     #board-search .search-window .search-wrap {
