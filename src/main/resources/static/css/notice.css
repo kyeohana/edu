@@ -125,6 +125,7 @@
 table {
     border-collapse: collapse;
     border-spacing: 0;
+    width: 100%;
   }
   
   .page-title {
@@ -363,3 +364,73 @@ table {
     padding-top: 10px;
     background-color: white;
 }
+
+@media screen and (max-width: 800px) {
+    .board-table th, .board-table td {
+        padding: 10px 5px;
+        font-size: 12px;
+    }
+
+    #board-search .search-window .search-wrap {
+        width: 90%;
+        max-width: 450px;
+    }
+
+    #board-search .search-window .search-wrap input {
+        font-size: 12px;
+    }
+
+    .pagination {
+        font-size: 12px;
+    }
+
+    .btn {
+        padding: 0 15px;
+        font-size: 12px;
+    }
+    .container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .location-drop-wrap-twin {
+        width: 100%;
+    }
+}
+
+/* 화면 너비가 500px 이하일 때 */
+@media screen and (max-width: 500px) {
+    .board-table th, .board-table td {
+        padding: 8px 4px;
+        font-size: 10px;
+    }
+
+    #board-search .search-window .search-wrap {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    #board-search .search-window .search-wrap input {
+        font-size: 10px;
+    }
+
+    .pagination {
+        font-size: 10px;
+    }
+
+    .btn {
+        padding: 0 10px;
+        font-size: 10px;
+    }
+    .container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .location-drop-wrap-twin {
+        width: 100%;
+    }
+}
+
+/* 추가적인 전체 레이아웃 조정 */
+

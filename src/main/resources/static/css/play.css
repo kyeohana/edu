@@ -131,3 +131,24 @@ button[type="submit"]:hover {
     font-size: 2rem;
     padding: .2rem;
 }
+
+.hideDepsTitle {
+    opacity: 0;
+}
+
+.hideDepsTitle.show {
+    display: flex;
+    padding: 13px 28px;
+    opacity: 1;
+}
+
+.hideDepsParent{
+    margin-top: 0px;
+    width: 210px;
+    height: 147px;
+    border: 1px solid #f0f0f0;
+    box-sizing: border-box;
+    margin-left: 56px;
+    padding-top: 10px;
+    background-color: white;
+}
