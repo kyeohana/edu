@@ -337,8 +337,8 @@ table {
 .btn_aniamtion{
     position: relative;
     display: inline-block;
-    padding: 25px 30px;
-    margin: 40px 0;
+    padding: 25px 125px;
+    margin: 0px 0;
     color: #4B89DC;
     text-decoration: none;
     text-transform: uppercase;
@@ -347,7 +347,7 @@ table {
     overflow: hidden;
     margin-right: 50px;
     margin-top: -10px;
-    left: 9%;
+    left: 6%;
 }
 .btn_aniamtion:hover{
     background: #4B89DC;
@@ -616,6 +616,7 @@ table {
     display: flex;
     padding: 13px 28px;
     opacity: 1;
+    z-index:2;
 }
 
 .dtnBtn_2{
@@ -624,6 +625,8 @@ table {
 }
 
 .hideDepsParent{
+    position: absolute;
+    z-index: 9999;
     margin-top: 0px;
     width: 265px;
     height: 105px;
@@ -632,5 +635,4 @@ table {
     margin-left: 56px;
     padding-top: 10px;
     background-color: white;
-    z-index : 1000;
 }
