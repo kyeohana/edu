@@ -152,3 +152,22 @@ button[type="submit"]:hover {
     padding-top: 10px;
     background-color: white;
 }
+
+@media screen and (max-width: 800px) {
+
+    .play_form{
+        font-size: 15px;
+    }
+
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .play_form{
+        font-size: 12px;
+    }
+    .selector {
+        font-size: 10px;
+    }
+}
