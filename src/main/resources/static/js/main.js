@@ -171,8 +171,9 @@ $("document").ready(function () {
 
     $(".slideMenuCloseBtn").click(function (event) {
             event.preventDefault()
-            slideMenu.animate({right: '-36.3%'}, 100);
+            slideMenu.animate({right: '-300px'}, 100);
             body.removeClass("overlayer");
+            $("body").css("overflow", "auto");
     });
 
 });

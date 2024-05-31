@@ -10,10 +10,12 @@ $(document).ready(function () {
         event.preventDefault();
         event.stopPropagation();
         body.addClass("overlayer");
+        $("body").css("overflow", "hidden");
+        header.css("height", "auto");
 
         setTimeout(function () {
             var isVisible = slideMenu.css('right') == '0px';
-            var newRight = isVisible ? '-36.3%' : '0px';
+            var newRight = isVisible ? '-300px' : '0px';
             slideMenu.animate({ right: newRight }, 100);
         }, 200);
 
@@ -21,8 +23,10 @@ $(document).ready(function () {
 
     $(document).click(function(event) {
         if (slideMenu.css('right') == '0px' && !$(event.target).closest('#slideMenu').length) {
-            slideMenu.animate({ right: '-36.3%' }, 100);
+            slideMenu.animate({ right: '-300px' }, 100);
             body.removeClass("overlayer");
+            $("body").css("overflow", "auto");
+            header.css("height", "86px");
         }
     });
 
