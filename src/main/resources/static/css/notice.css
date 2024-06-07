@@ -308,7 +308,7 @@ table {
 }
 
 .btn-margin{
-  margin: 1% 90%;
+  float:right;
 }
 
 .pagination{
